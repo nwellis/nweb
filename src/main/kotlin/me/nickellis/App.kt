@@ -9,7 +9,7 @@ import io.ktor.routing.*
 fun Application.main() {
   install(DefaultHeaders)
   install(CallLogging)
-  install(Routing) {
+  routing {
     get("/") {
       call.respondText("Hello World!", ContentType.Text.Html)
     }
