@@ -5,18 +5,17 @@ import io.ktor.html.respondHtml
 import io.ktor.routing.Routing
 import io.ktor.routing.get
 import kotlinx.html.*
-import me.nickellis.ktx.defaultHeaders
+import me.nickellis.html.defaultHeaders
+import me.nickellis.html.navbar
 
 fun Routing.root() {
   get("/") {
     call.respondHtml {
       head {
-        defaultHeaders()
+        defaultHeaders("About")
       }
       body {
-        p {
-          text("Hello World")
-        }
+        navbar()
       }
     }
   }

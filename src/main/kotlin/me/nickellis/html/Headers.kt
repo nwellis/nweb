@@ -1,11 +1,9 @@
-package me.nickellis.ktx
+package me.nickellis.html
 
-import kotlinx.html.HEAD
-import kotlinx.html.link
-import kotlinx.html.meta
-import kotlinx.html.script
+import kotlinx.html.*
 
-fun HEAD.defaultHeaders() {
+fun HEAD.defaultHeaders(title: String) {
+  title(title)
   link(rel = "icon", href = "/static/favicon.png")
   meta(charset = "utf-8")
   responsiveViewport()
