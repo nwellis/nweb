@@ -29,19 +29,7 @@ fun Application.main() {
   }
 
   routing {
-    get("/") {
-      call.respondHtml {
-        head {
-          link(rel = "stylesheet", href = "/static/skeleton.css")
-          link(rel = "stylesheet", href = "/static/normalize.css")
-        }
-        body {
-          p {
-            text("Hello World")
-          }
-        }
-      }
-    }
+    root()
 
     static("/static") {
       resources("static/styles")
