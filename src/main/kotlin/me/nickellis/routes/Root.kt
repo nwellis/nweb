@@ -6,6 +6,7 @@ import io.ktor.routing.Routing
 import io.ktor.routing.get
 import kotlinx.html.*
 import me.nickellis.html.defaultHeaders
+import me.nickellis.html.footerBar
 import me.nickellis.html.navbar
 
 fun Routing.root() {
@@ -25,6 +26,7 @@ fun Routing.root() {
             education()
           }
         }
+        footerBar()
       }
     }
   }
