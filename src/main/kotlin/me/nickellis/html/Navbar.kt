@@ -2,7 +2,7 @@ package me.nickellis.html
 
 import kotlinx.html.*
 
-fun BODY.navbar() {
+fun SectioningOrFlowContent.navbar() {
   val navbarMenuId = "navbarMenu"
   nav("navbar has-shadow") {
     div("container") {
