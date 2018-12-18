@@ -45,5 +45,4 @@ shadowJar {
     baseName = 'nweb'
     classifier = null
     version = null
-    //version = null
 }
