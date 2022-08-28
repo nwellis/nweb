@@ -6,5 +6,11 @@ import tailwind from "@astrojs/tailwind";
 // https://astro.build/config
 export default defineConfig({
   // Enable Preact to support Preact JSX components.
-  integrations: [preact(), image(), tailwind()],
+  integrations: [
+    preact(),
+    image(),
+    tailwind({
+      config: { applyBaseStyles: false },
+    }),
+  ],
 });
