@@ -1,0 +1,16 @@
+import { } from "preact";
+import clsx from "clsx";
+import { JSXInternal } from "preact/src/jsx";
+
+export type {{pascalCase name}}Props = {
+} & JSXInternal.HTMLAttributes<HTMLDivElement>
+
+function {{pascalCase name}}({ className, ...rest }: {{pascalCase name}}Props) {
+  return (
+    <div className={clsx(className, "flex flex-col")} {...rest}>
+      {{pascalCase name}}
+    </div>
+  )
+}
+
+export default {{pascalCase name}};
