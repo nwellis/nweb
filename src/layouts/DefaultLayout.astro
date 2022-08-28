@@ -1,22 +1,27 @@
 ---
+import "@fontsource/jetbrains-mono/400.css";
+import "@fontsource/jetbrains-mono/400-italic.css";
+import "@fontsource/jetbrains-mono/600.css";
+import "@fontsource/jetbrains-mono/600-italic.css";
 import "../styles/global.css";
 ---
 
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>nweb</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-  </head>
-  <body>
-    <nav>
-      <a href="#">Home</a>
-      <!-- <a href="#">Posts</a>
+<style>
+
+</style>
+
+<meta charset="utf-8" />
+<title>nweb</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<body>
+  <nav>
+    <a class="text-2xl" href="#">Home</a>
+    <!-- <a href="#">Posts</a>
       <a href="#">Contact</a> -->
-    </nav>
-    <main>
-      <slot />
-      <!-- your content is injected here -->
-    </main>
-  </body>
-</html>
+  </nav>
+  <main>
+    <slot />
+    <!-- your content is injected here -->
+  </main>
+</body>

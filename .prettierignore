@@ -3,3 +3,4 @@ dist
 node_modules
 plop-templates/*.*
 src/pages/blog/*.md
+tailwind.config.cjs

@@ -20,6 +20,7 @@
     "postcss": "^8.4.16"
   },
   "dependencies": {
+    "@fontsource/jetbrains-mono": "^4.5.10",
     "@nanostores/preact": "^0.2.1",
     "clsx": "^1.2.1",
     "nanostores": "^0.6.0",
