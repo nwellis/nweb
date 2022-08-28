@@ -9,15 +9,20 @@ import "@fontsource/jetbrains-mono/600-italic.css";
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
 <!-- This is intentionally inlined to avoid FOUC -->
-<script>
-  const root = document.documentElement;
-  const theme = localStorage.getItem("theme");
-  if (
-    theme === "dark" ||
-    (!theme && window.matchMedia("(prefers-color-scheme: dark)").matches)
-  ) {
-    root.classList.add("dark");
+<script is:inline>
+  const theme = (() => {
+    if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+      return localStorage.getItem("theme");
+    }
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      return "dark";
+    }
+    return "light";
+  })();
+
+  if (theme === "light") {
+    document.documentElement.classList.remove("dark");
   } else {
-    root.classList.remove("dark");
+    document.documentElement.classList.add("dark");
   }
 </script>

@@ -1,6 +1,14 @@
 ---
 import HeadCommon from "../components/HeadCommon.astro";
+import Logo from "../components/nav/Logo.astro";
+import Tab from "../components/nav/Tab.astro";
 import "../styles/global.css";
+
+export interface Props {
+  tab?: "Home" | "Work";
+}
+
+const { tab } = Astro.props;
 ---
 
 <html>
@@ -9,18 +17,24 @@ import "../styles/global.css";
     <slot name="head" />
   </head>
 
-  <body class="w-full h-full grid grid-rows-header-footer">
-    <nav
-      class="w-full bg-white-off dark:bg-gray text-black dark:text-white-off"
-    >
+  <body
+    class:list={[
+      "w-full h-full grid grid-rows-header-footer",
+      "text-black dark:text-white bg-gradient-to-b from-white-off to-white-off dark:from-gray-dark dark:to-gray",
+    ]}
+  >
+    <header class="w-full py-6">
       <div class="container">
-        <a class="text-2xl" href="#">Home</a>
-        <!-- <a href="#">Posts</a>
-          <a href="#">Contact</a> -->
+        <Logo>
+          <nav class="flex flex-row space-x-6 px-6">
+            <Tab href="/" active={tab === "Home"}>Home,</Tab>
+            <Tab href="/work" active={tab === "Work"}>Work</Tab>
+          </nav>
+        </Logo>
       </div>
-    </nav>
+    </header>
 
-    <main class="bg-white-off dark:bg-gray-dark text-black dark:text-white-off">
+    <main class="">
       <div class="container">
         <slot />
       </div>

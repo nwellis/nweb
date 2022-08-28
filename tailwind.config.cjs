@@ -27,6 +27,7 @@ const MONO_FAMILY_BASE = [
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
+	darkMode: 'class',
   theme: {
 		container: {
 			center: true
@@ -34,20 +35,21 @@ module.exports = {
 		colors: {
 			black: '#090b0c',
 			white: {
-				DEFAULT: '',
-				off: '#f5eff0'
+				DEFAULT: '#FEFEFE',
+				off: '#FAF7EF'
 			},
 			gray: {
 				dark: '#1d1f29',
 				DEFAULT: '#2a2d3c',
-				light: '#3B3F54'
+				light: '#323648',
+				lighter: '#3B3F54'
 			},
-			green: {
+			primary: {
 				DEFAULT: '#257E76',
-				light: '0FD2AB'
+				light: '#0FD2AB'
 			},
-			blue: {
-				dark: '##31445E',
+			secondary: {
+				dark: '#31445E',
 				DEFAULT: '#4C6A94',
 				light: '#7892BA'
 			},

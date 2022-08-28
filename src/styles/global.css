@@ -9,3 +9,22 @@ html {
 body {
   @apply w-full h-full;
 }
+
+@layer utilities {
+  .red-squiggles {
+    display: inline-block;
+    position: relative;
+  }
+  .red-squiggles:before {
+    content: "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
+    font-size: 0.8em;
+    font-weight: 700;
+    font-family: Times New Roman, Serif;
+    color: red;
+    width: 100%;
+    position: absolute;
+    top: 16px;
+    left: -1px;
+    overflow: hidden;
+  }
+}
