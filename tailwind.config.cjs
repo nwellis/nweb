@@ -28,11 +28,38 @@ const MONO_FAMILY_BASE = [
 module.exports = {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
+		container: {
+			center: true
+		},
+		colors: {
+			black: '#090b0c',
+			white: {
+				DEFAULT: '',
+				off: '#f5eff0'
+			},
+			gray: {
+				dark: '#1d1f29',
+				DEFAULT: '#2a2d3c',
+				light: '#3B3F54'
+			},
+			green: {
+				DEFAULT: '#257E76',
+				light: '0FD2AB'
+			},
+			blue: {
+				dark: '##31445E',
+				DEFAULT: '#4C6A94',
+				light: '#7892BA'
+			},
+		},
     extend: {
 			fontFamily: {
 				body: FONT_FAMILY_BASE,
 				mono: ['JetBrains Mono', ...MONO_FAMILY_BASE]
-			}
+			},
+      gridTemplateRows: {
+        'header-footer': "auto 1fr auto",
+      },
 		},
   },
   plugins: [],

@@ -3,6 +3,8 @@ import Counter from "../components/Counter";
 import DefaultLayout from "../layouts/DefaultLayout.astro";
 ---
 
+<title slot="head">nweb</title>
+
 <DefaultLayout>
   <h1 class="font-bold">Hello there</h1>
   <Counter client:visible>

@@ -1,27 +1,31 @@
 ---
-import "@fontsource/jetbrains-mono/400.css";
-import "@fontsource/jetbrains-mono/400-italic.css";
-import "@fontsource/jetbrains-mono/600.css";
-import "@fontsource/jetbrains-mono/600-italic.css";
+import HeadCommon from "../components/HeadCommon.astro";
 import "../styles/global.css";
 ---
 
-<style>
+<html>
+  <head>
+    <HeadCommon />
+    <slot name="head" />
+  </head>
 
-</style>
+  <body class="w-full h-full grid grid-rows-header-footer">
+    <nav
+      class="w-full bg-white-off dark:bg-gray text-black dark:text-white-off"
+    >
+      <div class="container">
+        <a class="text-2xl" href="#">Home</a>
+        <!-- <a href="#">Posts</a>
+          <a href="#">Contact</a> -->
+      </div>
+    </nav>
 
-<meta charset="utf-8" />
-<title>nweb</title>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <main class="bg-white-off dark:bg-gray-dark text-black dark:text-white-off">
+      <div class="container">
+        <slot />
+      </div>
+    </main>
 
-<body>
-  <nav>
-    <a class="text-2xl" href="#">Home</a>
-    <!-- <a href="#">Posts</a>
-      <a href="#">Contact</a> -->
-  </nav>
-  <main>
-    <slot />
-    <!-- your content is injected here -->
-  </main>
-</body>
+    <footer class="dark:bg-gray-light"></footer>
+  </body>
+</html>
