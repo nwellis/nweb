@@ -28,3 +28,15 @@ body {
     overflow: hidden;
   }
 }
+
+body::-webkit-scrollbar {
+  @apply w-2 bg-gray-dark;
+}
+
+body::-webkit-scrollbar-track {
+  @apply shadow-inner;
+}
+
+body::-webkit-scrollbar-thumb {
+  @apply outline outline-1 outline-accent bg-accent-dark rounded-lg;
+}
