@@ -1,13 +1,12 @@
 ---
-import Counter from "../components/Counter";
+import Waves from "../components/3D/Waves";
 import DefaultLayout from "../layouts/DefaultLayout.astro";
 ---
 
 <title slot="head">Nick Ellis</title>
 
 <DefaultLayout tab="Home">
-  <h1 class="font-bold">Home</h1>
-  <Counter client:visible>
-    <h1>Hello, Preact!</h1>
-  </Counter>
+  <div class="h-64" slot="hero">
+    <Waves colorHex={0xa3a3a3} client:only="react" />
+  </div>
 </DefaultLayout>

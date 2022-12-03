@@ -8,7 +8,7 @@ export interface Props {
   tab?: "Home" | "Work";
 }
 
-const { tab } = Astro.props;
+const { tab = "Home", container = true } = Astro.props;
 ---
 
 <html>
@@ -20,9 +20,14 @@ const { tab } = Astro.props;
   <body
     class:list={[
       "w-full h-full grid grid-rows-header-footer",
-      "text-black dark:text-white bg-gradient-to-b from-white-off to-white-off dark:from-gray-dark dark:to-gray",
+      "text-black dark:text-white",
+      "bg-gradient-to-b from-white-off to-white-off dark:from-gray-dark dark:to-gray",
     ]}
   >
+    <div class="absolute -z-10 w-full h-full">
+      <slot name="hero" />
+    </div>
+
     <header class="w-full py-6">
       <div class="container">
         <Logo>
@@ -35,7 +40,7 @@ const { tab } = Astro.props;
     </header>
 
     <main class="">
-      <div class="container">
+      <div class:list={[container ? "container" : "w-full"]}>
         <slot />
       </div>
     </main>
