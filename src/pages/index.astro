@@ -1,12 +1,30 @@
 ---
 import Waves from "../components/3D/Waves";
+import LoremIpsum from "../components/__debug/LoremIpsum";
 import DefaultLayout from "../layouts/DefaultLayout.astro";
 ---
 
 <title slot="head">Nick Ellis</title>
 
-<DefaultLayout tab="Home">
-  <div class="h-64" slot="hero">
-    <Waves colorHex={0xa3a3a3} client:only="react" />
+<DefaultLayout noNav>
+  <div class="h-96" slot="hero">
+    <Waves colorHex={0xc4b5fd} client:only="react" />
+  </div>
+
+  <div class="flex flex-col">
+    <div class="h-72 flex flex-row justify-center items-center">
+      <h1 class="text-5xl text-right font-mono">Nick<br />Ellis</h1>
+      <div class="w-32"></div>
+      <div class="flex flex-col space-y-4 text-3xl">
+        <h2>React</h2>
+        <h2>Android</h2>
+        <h2>Node</h2>
+      </div>
+    </div>
+    <div
+      class="flex flex-col p-4 space-y-6 border border-col border-accent rounded-lg bg-gray"
+    >
+      <LoremIpsum times={10} />
+    </div>
   </div>
 </DefaultLayout>

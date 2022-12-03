@@ -1,0 +1,15 @@
+import * as React from "react";
+import clsx from "clsx";
+
+export type {{pascalCase name}}Props = {
+} & React.HTMLAttributes<HTMLDivElement>;
+
+function {{pascalCase name}}({ className, ...rest }: {{pascalCase name}}Props) {
+  return (
+    <div className={clsx(className, "flex flex-col")} {...rest}>
+      {{pascalCase name}}
+    </div>
+  )
+}
+
+export default {{pascalCase name}};

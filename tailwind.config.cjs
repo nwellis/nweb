@@ -45,14 +45,24 @@ module.exports = {
 				lighter: '#3B3F54'
 			},
 			primary: {
-				DEFAULT: '#257E76',
-				light: '#0FD2AB'
+					dark: '#31445E',
+					DEFAULT: '#4C6A94',
+					light: '#7892BA'
 			},
-			secondary: {
-				dark: '#31445E',
-				DEFAULT: '#4C6A94',
-				light: '#7892BA'
+			accent: {
+				dark: '#4c1d95',
+				DEFAULT: '#7C3AED',
+				light: '#C4B5FD'
 			},
+			// primary: {
+			// 	DEFAULT: '#257E76',
+			// 	light: '#0FD2AB'
+			// },
+			// secondary: {
+			// 	dark: '#31445E',
+			// 	DEFAULT: '#4C6A94',
+			// 	light: '#7892BA'
+			// },
 		},
     extend: {
 			fontFamily: {

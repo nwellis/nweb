@@ -1,8 +1,8 @@
-import * as THREE from "three";
+import { Color, ColorRepresentation } from "three";
 
-export const WavesShaderMaterial = (pointColor) => ({
+export const WavesShaderMaterial = (pointColor: ColorRepresentation) => ({
   uniforms: {
-    color: { value: new THREE.Color(pointColor) },
+    color: { value: new Color(pointColor) },
   },
   vertexShader: `
     attribute float scale;

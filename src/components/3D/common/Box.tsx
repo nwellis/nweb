@@ -1,9 +1,9 @@
 import { useFrame } from "@react-three/fiber";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 function Box(props) {
   // This reference will give us direct access to the mesh
-  const mesh = useRef();
+  const mesh = useRef<THREE.Mesh>();
 
   // Set up state for the hovered and active state
   const [hovered, setHover] = useState(false);
@@ -11,6 +11,7 @@ function Box(props) {
 
   // Rotate mesh every frame, this is outside of React without overhead
   useFrame(() => {
+    if (!mesh.current) return;
     mesh.current.rotation.x = mesh.current.rotation.y += 0.01;
   });
 

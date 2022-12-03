@@ -2,13 +2,15 @@
 import HeadCommon from "../components/HeadCommon.astro";
 import Logo from "../components/nav/Logo.astro";
 import Tab from "../components/nav/Tab.astro";
+import LoremIpsum from "../components/__debug/LoremIpsum";
 import "../styles/global.css";
 
 export interface Props {
+  noNav?: boolean;
   tab?: "Home" | "Work";
 }
 
-const { tab = "Home", container = true } = Astro.props;
+const { tab = "Home", noNav = false } = Astro.props;
 ---
 
 <html>
@@ -17,34 +19,42 @@ const { tab = "Home", container = true } = Astro.props;
     <slot name="head" />
   </head>
 
-  <body
-    class:list={[
-      "w-full h-full grid grid-rows-header-footer",
-      "text-black dark:text-white",
-      "bg-gradient-to-b from-white-off to-white-off dark:from-gray-dark dark:to-gray",
-    ]}
-  >
-    <div class="absolute -z-10 w-full h-full">
-      <slot name="hero" />
-    </div>
-
-    <header class="w-full py-6">
-      <div class="container">
-        <Logo>
-          <nav class="flex flex-row space-x-6 px-6">
-            <Tab href="/" active={tab === "Home"}>Home,</Tab>
-            <Tab href="/work" active={tab === "Work"}>Work</Tab>
-          </nav>
-        </Logo>
+  <body>
+    <div
+      class:list={[
+        "w-full h-content grid grid-rows-header-footer",
+        "text-black dark:text-white",
+        "bg-gradient-to-b from-white-off to-white-off dark:from-gray-dark dark:to-gray",
+      ]}
+    >
+      <div class="absolute w-full h-full row-start-1">
+        <slot name="hero" />
       </div>
-    </header>
 
-    <main class="">
-      <div class:list={[container ? "container" : "w-full"]}>
+      {
+        !noNav && (
+          <header class="z-10 w-full row-start-1">
+            <div class="container py-6">
+              <Logo>
+                <nav class="flex flex-row space-x-6 px-6">
+                  <Tab href="/" active={tab === "Home"}>
+                    Home,
+                  </Tab>
+                  <Tab href="/work" active={tab === "Work"}>
+                    Work
+                  </Tab>
+                </nav>
+              </Logo>
+            </div>
+          </header>
+        )
+      }
+
+      <main class="z-10 container row-start-2">
         <slot />
-      </div>
-    </main>
+      </main>
 
-    <footer class="dark:bg-gray-light"></footer>
+      <footer class="dark:bg-gray-light row-start-3 mt-12"></footer>
+    </div>
   </body>
 </html>

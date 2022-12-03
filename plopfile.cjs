@@ -24,7 +24,8 @@ module.exports = function (plop) {
       {
         type: "add",
         path: "src/{{dir}}/{{pascalCase name}}.tsx",
-        templateFile: "plop-templates/Component.preact.js.hbs",
+        templateFile: "plop-templates/Component.react.js.hbs",
+        // templateFile: "plop-templates/Component.preact.js.hbs",
       },
     ],
   });
@@ -47,7 +48,8 @@ module.exports = function (plop) {
       {
         type: "add",
         path: "src/hooks/{{dir}}/{{pascalCase name}}.ts",
-        templateFile: "plop-templates/Hook.preact.js.hbs",
+        templateFile: "plop-templates/Hook.react.js.hbs",
+        // templateFile: "plop-templates/Hook.preact.js.hbs",
       },
     ],
   });
