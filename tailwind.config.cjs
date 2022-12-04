@@ -45,9 +45,9 @@ module.exports = {
 				lighter: '#3B3F54'
 			},
 			primary: {
-					dark: '#31445E',
-					DEFAULT: '#4C6A94',
-					light: '#7892BA'
+				dark: '#31445E',
+				DEFAULT: '#4C6A94',
+				light: '#7892BA'
 			},
 			accent: {
 				dark: '#4c1d95',

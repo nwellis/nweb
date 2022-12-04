@@ -1,5 +1,6 @@
 ---
 import Waves from "../components/3D/Waves";
+import HeroBanner from "../components/HeroBanner";
 import LoremIpsum from "../components/__debug/LoremIpsum";
 import DefaultLayout from "../layouts/DefaultLayout.astro";
 ---
@@ -13,13 +14,7 @@ import DefaultLayout from "../layouts/DefaultLayout.astro";
 
   <div class="flex flex-col">
     <div class="h-72 flex flex-row justify-center items-center">
-      <h1 class="text-5xl text-right font-mono">Nick<br />Ellis</h1>
-      <div class="w-32"></div>
-      <div class="flex flex-col space-y-4 text-3xl">
-        <h2>React</h2>
-        <h2>Android</h2>
-        <h2>Node</h2>
-      </div>
+      <HeroBanner />
     </div>
     <div
       class="flex flex-col p-4 space-y-6 border border-col border-accent rounded-lg bg-gray"
