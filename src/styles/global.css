@@ -38,5 +38,5 @@ body::-webkit-scrollbar-track {
 }
 
 body::-webkit-scrollbar-thumb {
-  @apply outline outline-1 bg-accent-dark rounded-lg;
+  @apply outline outline-1 bg-gray-lighter rounded-lg;
 }

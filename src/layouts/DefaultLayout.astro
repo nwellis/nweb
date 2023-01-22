@@ -5,7 +5,7 @@ import "../styles/global.css";
 
 export interface Props {
   noNav?: boolean;
-  tab?: "Home" | "Work";
+  tab?: "Home" | "Work" | "Projects";
 }
 
 const { tab = "Home", noNav = false } = Astro.props;
@@ -40,7 +40,7 @@ const { tab = "Home", noNav = false } = Astro.props;
                 <Tab href="/work" active={tab === "Work"}>
                   Work
                 </Tab>
-                <Tab href="/work" active={tab === "Work"}>
+                <Tab href="/projects" active={tab === "Projects"}>
                   Projects
                 </Tab>
               </nav>

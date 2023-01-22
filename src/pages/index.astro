@@ -7,18 +7,24 @@ import DefaultLayout from "../layouts/DefaultLayout.astro";
 <title slot="head">Nick Ellis</title>
 
 <DefaultLayout>
-  <div class="h-96 opacity-40" slot="hero">
+  <div class="h-96 opacity-30" slot="hero">
     <Waves colorHex={0xc4b5fd} client:only="react" />
   </div>
 
   <div class="flex flex-col">
-    <div class="h-72 flex flex-row justify-center items-center">
-      <!-- <HeroBanner /> -->
+    <div class="h-72 flex flex-col justify-center items-center">
+      <h2 class="text-3xl px-24 max-w-6xl text-center">
+        Recent work in <span class="text-brand-react font-bold">React</span> and
+        <span class="text-brand-phaser font-bold brightness-125">Phaser</span> game
+        development. Strong mobile experience with <span
+          class="text-brand-android font-bold">Android</span
+        > apps and <span class="font-bold text-accent-light">PWAs</span>.
+      </h2>
     </div>
-    <div
-      class="flex flex-col p-4 space-y-6 border border-col border-accent rounded-lg bg-gray"
+    <!-- <div
+      class="flex flex-col p-4 space-y-6 border border-col border-gray-dark rounded-lg bg-gray"
     >
       <LoremIpsum times={10} />
-    </div>
+    </div> -->
   </div>
 </DefaultLayout>

@@ -57,6 +57,11 @@ module.exports = {
 				DEFAULT: '#7C3AED',
 				light: '#C4B5FD'
 			},
+			brand: {
+				react: '#61dafb',
+				android: '#a4c639',
+				phaser: '#99388c',
+			},
 			// primary: {
 			// 	DEFAULT: '#257E76',
 			// 	light: '#0FD2AB'
