@@ -1,5 +1,6 @@
 ---
 import Waves from "../components/3D/Waves";
+import WorkCategoriesGraphic from "../components/WorkCategoriesGraphic";
 import LoremIpsum from "../components/__debug/LoremIpsum";
 import DefaultLayout from "../layouts/DefaultLayout.astro";
 ---
@@ -7,13 +8,13 @@ import DefaultLayout from "../layouts/DefaultLayout.astro";
 <title slot="head">Nick Ellis</title>
 
 <DefaultLayout>
-  <div class="h-96 opacity-40" slot="hero">
+  <div class="h-96" slot="hero">
     <Waves colorHex={0xc4b5fd} client:only="react" />
   </div>
 
   <div class="flex flex-col">
     <div class="h-72 flex flex-row justify-center items-center">
-      <!-- <HeroBanner /> -->
+      <WorkCategoriesGraphic />
     </div>
     <div
       class="flex flex-col p-4 space-y-6 border border-col border-accent rounded-lg bg-gray"

@@ -8,10 +8,10 @@ const { active, href } = Astro.props;
 ---
 
 <a
-  class="transition-transform duration-250 hover:-translate-y-1 text-2xl"
+  class="transition-transform duration-500 hover:-translate-y-2 error"
   href={href}
 >
-  <span class={active && ""}>
+  <span class={active && "red-squiggles"}>
     <slot>...</slot>
   </span>
 </a>

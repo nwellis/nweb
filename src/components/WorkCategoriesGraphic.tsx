@@ -36,14 +36,21 @@ function Node({ className }: React.HTMLAttributes<HTMLDivElement>) {
   );
 }
 
-export type HeroBannerProps = {} & React.HTMLAttributes<HTMLDivElement>;
+export type WorkCategoriesGraphicProps = {
+  background?: boolean;
+} & React.HTMLAttributes<HTMLDivElement>;
 
-function HeroBanner({ className, ...rest }: HeroBannerProps) {
+function WorkCategoriesGraphic({
+  background,
+  className,
+  ...rest
+}: WorkCategoriesGraphicProps) {
   return (
     <div
       className={clsx(
         className,
-        "h-36 lg:w-[32rem] text-3xl grid grid-rows-3 grid-cols-[auto_1fr_2rem_2rem_1fr_auto] bg-black rounded-xl bg-opacity-80"
+        "h-36 lg:w-[32rem] text-3xl grid grid-rows-3 grid-cols-[auto_1fr_2rem_2rem_1fr_auto]",
+        background && "bg-black rounded-xl bg-opacity-80"
       )}
       {...rest}
     >
@@ -94,4 +101,4 @@ function HeroBanner({ className, ...rest }: HeroBannerProps) {
   );
 }
 
-export default HeroBanner;
+export default WorkCategoriesGraphic;

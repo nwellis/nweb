@@ -1,6 +1,5 @@
 ---
 import HeadCommon from "../components/HeadCommon.astro";
-import Logo from "../components/nav/Logo.astro";
 import Tab from "../components/nav/Tab.astro";
 import "../styles/global.css";
 
@@ -21,7 +20,7 @@ const { tab = "Home", noNav = false } = Astro.props;
   <body>
     <div
       class:list={[
-        "w-full h-content grid grid-rows-header-footer",
+        "w-full min-h-full grid grid-rows-header-footer",
         "text-black dark:text-white",
         "bg-gradient-to-b from-white-off to-white-off dark:from-gray-dark dark:to-gray",
       ]}
@@ -32,18 +31,19 @@ const { tab = "Home", noNav = false } = Astro.props;
 
       {
         !noNav && (
-          <header class="z-10 w-full row-start-1">
+          <header class="z-10 w-full row-start-1 bg-gray-dark border-gray-darker border-b-2">
             <div class="container py-6">
-              <Logo>
-                <nav class="flex flex-row space-x-6 px-6">
-                  <Tab href="/" active={tab === "Home"}>
-                    Home,
-                  </Tab>
-                  <Tab href="/work" active={tab === "Work"}>
-                    Work
-                  </Tab>
-                </nav>
-              </Logo>
+              <nav class="flex flex-row items-center space-x-12 px-6">
+                <Tab href="/" active={tab === "Home"}>
+                  <h1 class="text-3xl font-extrabold">Nick Ellis</h1>
+                </Tab>
+                <Tab href="/work" active={tab === "Work"}>
+                  Work
+                </Tab>
+                <Tab href="/work" active={tab === "Work"}>
+                  Projects
+                </Tab>
+              </nav>
             </div>
           </header>
         )
