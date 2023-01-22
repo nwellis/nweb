@@ -7,7 +7,7 @@ html {
 }
 
 body {
-  @apply w-full h-full;
+  @apply w-full h-full font-body;
 }
 
 @layer utilities {

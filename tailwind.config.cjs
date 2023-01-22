@@ -1,28 +1,30 @@
-// https://github.com/withastro/astro.build/blob/main/tailwind.config.js
-const FONT_FAMILY_BASE = [
-  'system-ui',
-  '-apple-system',
-  'BlinkMacSystemFont',
-  'Segoe UI',
-  'Roboto',
-  'Oxygen',
-  'Ubuntu',
-  'Cantarell',
-  'Open Sans',
-  'Helvetica Neue',
-  'sans-serif',
-];
+const defaultTheme = require("tailwindcss/defaultTheme");
 
-const MONO_FAMILY_BASE = [
-  'Menlo',
-  'Monaco',
-  'Lucida Console',
-  'Liberation Mono',
-  'DejaVu Sans Mono',
-  'Bitstream Vera Sans Mono',
-  'Courier New',
-  'monospace',
-];
+// https://github.com/withastro/astro.build/blob/main/tailwind.config.js
+// const FONT_FAMILY_BASE = [
+//   'system-ui',
+//   '-apple-system',
+//   'BlinkMacSystemFont',
+//   'Segoe UI',
+//   'Roboto',
+//   'Oxygen',
+//   'Ubuntu',
+//   'Cantarell',
+//   'Open Sans',
+//   'Helvetica Neue',
+//   'sans-serif',
+// ];
+
+// const MONO_FAMILY_BASE = [
+//   'Menlo',
+//   'Monaco',
+//   'Lucida Console',
+//   'Liberation Mono',
+//   'DejaVu Sans Mono',
+//   'Bitstream Vera Sans Mono',
+//   'Courier New',
+//   'monospace',
+// ];
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -66,8 +68,9 @@ module.exports = {
 		},
     extend: {
 			fontFamily: {
-				body: FONT_FAMILY_BASE,
-				mono: ['JetBrains Mono', ...MONO_FAMILY_BASE]
+				header: ['Raleway', ...defaultTheme.fontFamily.sans],
+				body: ['Raleway', ...defaultTheme.fontFamily.sans],
+				mono: ['JetBrains Mono', ...defaultTheme.fontFamily.mono],
 			},
       gridTemplateRows: {
         'header-footer': "auto 1fr auto",

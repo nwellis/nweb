@@ -43,13 +43,17 @@ function HeroBanner({ className, ...rest }: HeroBannerProps) {
     <div
       className={clsx(
         className,
-        "h-36 text-3xl grid grid-rows-3 grid-cols-[auto_2rem_6rem_2rem_6rem_auto]"
+        "h-36 lg:w-[32rem] text-3xl grid grid-rows-3 grid-cols-[auto_1fr_2rem_2rem_1fr_auto] bg-black rounded-xl bg-opacity-80"
       )}
       {...rest}
     >
       {/** Col 1 */}
-      <div className="col-start-1 row-start-1 row-end-4 flex flex-col justify-center px-4">
-        <h1 className="text-5xl text-right font-mono">
+      <div
+        className={clsx(
+          "col-start-1 row-start-1 row-end-4 flex flex-col justify-center px-4"
+        )}
+      >
+        <h1 className="text-5xl text-right font-header">
           Nick
           <br />
           Ellis
