@@ -1,8 +1,38 @@
 ---
 import Waves from "../components/3D/Waves";
-import LoremIpsum from "../components/__debug/LoremIpsum";
 import DefaultLayout from "../layouts/DefaultLayout.astro";
 ---
+
+<script>
+  const AnimateInStartClasses = "opacity-0 blur-sm -translate-x-full"
+    .split(" ")
+    .map((cls) => `motion-safe:${cls}`);
+
+  const AnimateInEndClasses = "opacity-100 blur-none translate-x-0"
+    .split(" ")
+    .map((cls) => `motion-safe:${cls}`);
+
+  const observer = new IntersectionObserver((entries) =>
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add(...AnimateInEndClasses);
+        entry.target.classList.remove(...AnimateInStartClasses);
+      } else {
+        entry.target.classList.add(...AnimateInStartClasses);
+        entry.target.classList.remove(...AnimateInEndClasses);
+      }
+    })
+  );
+
+  document.querySelectorAll("[data-animate-in]").forEach((element) => {
+    element.classList.add(
+      ...AnimateInStartClasses,
+      "transition-all",
+      "duration-700"
+    );
+    observer.observe(element);
+  });
+</script>
 
 <title slot="head">Nick Ellis</title>
 
@@ -13,7 +43,10 @@ import DefaultLayout from "../layouts/DefaultLayout.astro";
 
   <div class="flex flex-col">
     <div class="h-72 flex flex-col justify-center items-center">
-      <h2 class="text-3xl px-24 max-w-6xl text-center">
+      <h2
+        data-animate-in
+        class="text-2xl sm:text-3xl px-4 md:px-24 max-w-6xl text-center"
+      >
         Recent work in <span class="text-brand-react font-bold">React</span> and
         <span class="text-brand-phaser font-bold brightness-125">Phaser</span> game
         development. Strong mobile experience with <span
@@ -21,10 +54,5 @@ import DefaultLayout from "../layouts/DefaultLayout.astro";
         > apps and <span class="font-bold text-accent-light">PWAs</span>.
       </h2>
     </div>
-    <!-- <div
-      class="flex flex-col p-4 space-y-6 border border-col border-gray-dark rounded-lg bg-gray"
-    >
-      <LoremIpsum times={10} />
-    </div> -->
   </div>
 </DefaultLayout>

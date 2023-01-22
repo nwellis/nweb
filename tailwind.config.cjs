@@ -30,6 +30,14 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 module.exports = {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
 	darkMode: 'class',
+
+	safelist: [
+		{ pattern: /blur-(0|none|sm|md|lg|xl)/, variants: ["motion-safe", "motion-reduce"] },
+		{ pattern: /-?translate-x-(0|full)/, variants: ["motion-safe", "motion-reduce"] },
+		{ pattern: /transition-(opacity|all)/, variants: ["motion-safe", "motion-reduce"] },
+		{ pattern: /duration-[0-9]{3,4}/, variants: ["motion-safe", "motion-reduce"] },
+	],
+
   theme: {
 		container: {
 			center: true
@@ -61,6 +69,7 @@ module.exports = {
 				react: '#61dafb',
 				android: '#a4c639',
 				phaser: '#99388c',
+				linkedin: '#0a66c2'
 			},
 			// primary: {
 			// 	DEFAULT: '#257E76',

@@ -1,4 +1,5 @@
 ---
+import { Icon } from "astro-icon";
 import HeadCommon from "../components/HeadCommon.astro";
 import Tab from "../components/nav/Tab.astro";
 import "../styles/global.css";
@@ -32,17 +33,39 @@ const { tab = "Home", noNav = false } = Astro.props;
       {
         !noNav && (
           <header class="z-10 w-full row-start-1 bg-gray-dark border-gray-darker border-b-2">
-            <div class="container py-6">
-              <nav class="flex flex-row items-center space-x-12 px-6">
-                <Tab href="/" active={tab === "Home"}>
-                  <h1 class="text-3xl font-extrabold">Nick Ellis</h1>
-                </Tab>
-                <Tab href="/work" active={tab === "Work"}>
-                  Work
-                </Tab>
-                <Tab href="/projects" active={tab === "Projects"}>
-                  Projects
-                </Tab>
+            <div class="container py-2 md:py-6 px-3">
+              <nav class="w-full flex flex-row justify-between items-center">
+                <div class="flex flex-row space-x-4 md:space-x-8 xl:space-x-12 items-center">
+                  <Tab href="/" active={tab === "Home"}>
+                    <h1 class="text-3xl font-extrabold md:hidden">NE</h1>
+                    <h1 class="text-3xl font-extrabold hidden md:block">
+                      Nick Ellis
+                    </h1>
+                  </Tab>
+                  <Tab href="/work" active={tab === "Work"}>
+                    Work
+                  </Tab>
+                  <Tab href="/projects" active={tab === "Projects"}>
+                    Projects
+                  </Tab>
+                </div>
+
+                <div class="hidden sm:flex flex-row space-x-1 sm:space-x-6  items-center">
+                  <a
+                    href="https://github.com/nwellis"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    <Icon class="w-12 h-12 p-px" name="mdi:github" />
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/in/linkednickellis/"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    <Icon class="w-12 h-12" name="mdi:linkedin" />
+                  </a>
+                </div>
               </nav>
             </div>
           </header>
