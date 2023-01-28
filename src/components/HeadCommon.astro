@@ -11,7 +11,7 @@ import "@fontsource/raleway/700.css";
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<!-- This is intentionally inlined to avoid FOUC -->
+<!-- This is intentionally inlined to avoid FOUC (flash of unstyled content) -->
 <script is:inline>
   const theme = (() => {
     if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {

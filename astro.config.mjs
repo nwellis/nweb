@@ -12,4 +12,6 @@ export default defineConfig({
       config: { applyBaseStyles: false },
     }),
   ],
+
+  server: { port: 3003 },
 });

@@ -27,6 +27,14 @@ body {
     left: -1px;
     overflow: hidden;
   }
+
+  .animate-in-start {
+    @apply motion-safe:opacity-0 motion-safe:blur-sm motion-safe:-translate-x-full;
+  }
+
+  .animate-in-end {
+    @apply motion-safe:opacity-100 motion-safe:blur-none motion-safe:translate-x-0;
+  }
 }
 
 body::-webkit-scrollbar {
