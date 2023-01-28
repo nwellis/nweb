@@ -1,5 +1,6 @@
 ---
 import Waves from "../components/3D/Waves";
+import ToolsTabList from "../components/tools/ToolsTabList";
 import DefaultLayout from "../layouts/DefaultLayout.astro";
 ---
 
@@ -24,7 +25,7 @@ import DefaultLayout from "../layouts/DefaultLayout.astro";
 <title slot="head">Nick Ellis</title>
 
 <DefaultLayout>
-  <div class="h-96 opacity-30" slot="hero">
+  <div class="h-screen opacity-30" slot="hero">
     <Waves colorHex={0xc4b5fd} client:only="react" />
   </div>
 
@@ -41,8 +42,10 @@ import DefaultLayout from "../layouts/DefaultLayout.astro";
         <span class="text-brand-phaser font-bold brightness-125">Phaser</span> game
         development. Strong mobile experience with <span
           class="text-brand-android font-bold">Android</span
-        > apps and <span class="font-bold text-accent-light">PWAs</span>.
+        > apps and <span class="font-bold text-brand-pwa">PWAs</span>.
       </h2>
     </div>
+
+    <ToolsTabList client:load />
   </div>
 </DefaultLayout>

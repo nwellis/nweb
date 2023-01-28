@@ -1,0 +1,18 @@
+{
+  "react": {
+    "name": "React",
+    "description": ""
+  },
+  "android": {
+    "name": "Android",
+    "description": ""
+  },
+  "pwa": {
+    "name": "PWA",
+    "description": ""
+  },
+  "phaser": {
+    "name": "Phaser",
+    "description": ""
+  }
+}

@@ -69,7 +69,8 @@ module.exports = {
 				react: '#61dafb',
 				android: '#a4c639',
 				phaser: '#99388c',
-				linkedin: '#0a66c2'
+				linkedin: '#0a66c2',
+				pwa: '#C4B5FD'
 			},
 			// primary: {
 			// 	DEFAULT: '#257E76',
