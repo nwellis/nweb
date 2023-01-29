@@ -29,7 +29,7 @@ body {
   }
 
   .animate-in-start {
-    @apply motion-safe:opacity-0 motion-safe:blur-sm motion-safe:-translate-x-full;
+    @apply motion-safe:opacity-0 motion-safe:blur-sm motion-safe:-translate-x-4;
   }
 
   .animate-in-end {

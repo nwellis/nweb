@@ -28,7 +28,7 @@ function ToolsTab({
     <div
       className={clsx(
         className,
-        "flex flex-col items-center p-4 min-w-[8rem] mx-2",
+        "relative flex flex-col items-center p-3 md:p-4 lg:min-w-[8rem] mx-0.5 md:mx-2",
         "bg-gray-darker border border-gray-lighter rounded-lg",
         "disabled:opacity-60 shadow-md motion-reduce:shadow-none",
 
@@ -44,7 +44,20 @@ function ToolsTab({
       )}
       {...rest}
     >
-      <h2 className="text-2xl font-semibold">{ToolsMetadata[tool].name}</h2>
+      <h2 className="text-lg sm:text-xl xl:text-2xl font-semibold">
+        {ToolsMetadata[tool].name}
+      </h2>
+      <div
+        className={clsx(
+          active ? "flex" : "hidden",
+          "absolute left-0 top-full w-full flex-row justify-center"
+        )}
+      >
+        <div
+          className={clsx("h-4 w-8 bg-gray-darker animate-bounce-slow")}
+          style={{ clipPath: "polygon(0 0, 100% 0, 50% 100%, 50% 100%)" }}
+        />
+      </div>
     </div>
   );
 }

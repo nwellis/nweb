@@ -12,10 +12,10 @@
   },
   "devDependencies": {
     "@astrojs/image": "^0.3.6",
-    "@astrojs/react": "^1.2.2",
-    "@astrojs/tailwind": "^1.0.0",
+    "@astrojs/react": "^2.0.1",
+    "@astrojs/tailwind": "^3.0.0",
     "@types/three": "^0.146.0",
-    "astro": "^1.1.1",
+    "astro": "^2.0.2",
     "autoprefixer": "^10.4.8",
     "plop": "^3.1.1",
     "postcss": "^8.4.16"

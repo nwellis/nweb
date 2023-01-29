@@ -1,31 +1,5 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
 
-// https://github.com/withastro/astro.build/blob/main/tailwind.config.js
-// const FONT_FAMILY_BASE = [
-//   'system-ui',
-//   '-apple-system',
-//   'BlinkMacSystemFont',
-//   'Segoe UI',
-//   'Roboto',
-//   'Oxygen',
-//   'Ubuntu',
-//   'Cantarell',
-//   'Open Sans',
-//   'Helvetica Neue',
-//   'sans-serif',
-// ];
-
-// const MONO_FAMILY_BASE = [
-//   'Menlo',
-//   'Monaco',
-//   'Lucida Console',
-//   'Liberation Mono',
-//   'DejaVu Sans Mono',
-//   'Bitstream Vera Sans Mono',
-//   'Courier New',
-//   'monospace',
-// ];
-
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
@@ -91,6 +65,21 @@ module.exports = {
       gridTemplateRows: {
         'header-footer': "auto 1fr auto",
       },
+			keyframes: {
+				'bounce-slow': {
+					'0%, 100%': {
+						'transform': 'translateY(-40%)',
+						'animation-timing-function': 'cubic-bezier(0.8,0,1,3)',
+					},
+					'50%': {
+						'transform': 'none',
+						'animation-timing-function': 'cubic-bezier(0,0,0.2,3)',
+					}
+				}
+			},
+			animation: {
+				'bounce-slow': 'bounce 3s infinite',
+			},
 		},
   },
   plugins: [],

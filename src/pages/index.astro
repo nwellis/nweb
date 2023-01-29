@@ -46,6 +46,8 @@ import DefaultLayout from "../layouts/DefaultLayout.astro";
       </h2>
     </div>
 
-    <ToolsTabList client:load />
+    <div data-animate-in class="animate-in-start duration-700 transition-all">
+      <ToolsTabList client:load />
+    </div>
   </div>
 </DefaultLayout>

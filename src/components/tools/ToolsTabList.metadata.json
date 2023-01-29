@@ -1,18 +1,22 @@
 {
   "react": {
     "name": "React",
-    "description": ""
+    "description": "I've built applications with complex requirements. From these challenges I've developed strong fundementals in state management, performance, and managing large projects.",
+    "bullets": ["Chat Apps", "Forms and Searches", "Server State Sync"]
   },
   "android": {
     "name": "Android",
-    "description": ""
+    "description": "",
+    "bullets": []
   },
   "pwa": {
     "name": "PWA",
-    "description": ""
+    "description": "",
+    "bullets": []
   },
   "phaser": {
     "name": "Phaser",
-    "description": ""
+    "description": "",
+    "bullets": []
   }
 }
