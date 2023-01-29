@@ -19,7 +19,7 @@ function ToolsTabList({ className, ...rest }: ToolsTabListProps) {
       <Tab.Group onChange={(index) => setActive(Tools[index])}>
         <Tab.List
           as="div"
-          className={clsx("flex flex-wrap", className)}
+          className={clsx("flex flex-wrap justify-center", className)}
           {...rest}
         >
           {Tools.map((tool) => (
@@ -31,7 +31,7 @@ function ToolsTabList({ className, ...rest }: ToolsTabListProps) {
             />
           ))}
         </Tab.List>
-        <Tab.Panels>
+        <Tab.Panels className="mx-2">
           {Tools.map((tool) => (
             <Transition
               key={tool}
@@ -42,7 +42,7 @@ function ToolsTabList({ className, ...rest }: ToolsTabListProps) {
               enterFrom="opacity-0"
               enterTo="opacity-100"
             >
-              <p className="w-full max-w-3xl m-8 text-2xl px-4">
+              <p className="w-full max-w-3xl text-lg md:text-2xl py-4 px-4 md:px-8">
                 {ToolsMetadata[tool].description}
               </p>
             </Transition>
