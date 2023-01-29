@@ -4,6 +4,7 @@ import TabList, { TabListProps } from "components/common/container/TabList";
 import ToolsMetadata from "components/tools/ToolsTabList.metadata.json";
 import ToolsTab from "./ToolsTab";
 import LoremIpsum from "components/__debug/LoremIpsum";
+import { Transition } from "@headlessui/react";
 
 export type ToolsTabKey = keyof typeof ToolsMetadata;
 const Tools = Object.keys(ToolsMetadata) as ToolsTabKey[];
@@ -28,16 +29,17 @@ function ToolsTabList({ className, ...rest }: ToolsTabListProps) {
       {...rest}
     >
       {Tools.map((tool) => (
-        <p
+        <Transition
           key={tool}
-          className={clsx(
-            "transition-opacity motion-reduce:transition-none duration-1000",
-            tool === active ? "flex opacity-100" : "hidden opacity-0",
-            "w-full max-w-3xl m-8 text-xl px-4"
-          )}
+          as="p"
+          show={tool === active}
+          className="w-full max-w-3xl m-8 text-2xl px-4"
+          enter="transition-opacity duration-500"
+          enterFrom="opacity-0"
+          enterTo="opacity-100"
         >
           {ToolsMetadata[tool].description || <LoremIpsum />}
-        </p>
+        </Transition>
       ))}
     </TabList>
   );
