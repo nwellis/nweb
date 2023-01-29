@@ -3,6 +3,7 @@ import clsx from "clsx";
 import TabListTab, { TabListTabProps } from "../common/container/TabListTab";
 import { ToolsTabKey } from "./ToolsTabList";
 import ToolsMetadata from "components/tools/ToolsTabList.metadata.json";
+import { Tab } from "@headlessui/react";
 // import { Icon } from "astro-icon";
 
 // const Graphic: Record<ToolsTabKey, React.ReactNode> = {
@@ -15,7 +16,7 @@ import ToolsMetadata from "components/tools/ToolsTabList.metadata.json";
 export type ToolsTabProps = {
   tool: ToolsTabKey;
   active?: boolean;
-} & React.HTMLAttributes<HTMLDivElement>;
+} & React.HTMLAttributes<HTMLButtonElement>;
 
 function ToolsTab({
   tool,
@@ -25,7 +26,7 @@ function ToolsTab({
   ...rest
 }: ToolsTabProps) {
   return (
-    <div
+    <Tab
       className={clsx(
         className,
         "relative flex flex-col items-center p-3 md:p-4 lg:min-w-[8rem] mx-0.5 md:mx-2",
@@ -58,7 +59,7 @@ function ToolsTab({
           style={{ clipPath: "polygon(0 0, 100% 0, 50% 100%, 50% 100%)" }}
         />
       </div>
-    </div>
+    </Tab>
   );
 }
 

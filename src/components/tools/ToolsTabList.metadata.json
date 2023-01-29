@@ -6,17 +6,17 @@
   },
   "android": {
     "name": "Android",
-    "description": "",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris non lacus rhoncus, semper neque quis, scelerisque quam.",
     "bullets": []
   },
   "pwa": {
     "name": "PWA",
-    "description": "",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris non lacus rhoncus, semper neque quis, scelerisque quam.",
     "bullets": []
   },
   "phaser": {
     "name": "Phaser",
-    "description": "",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris non lacus rhoncus, semper neque quis, scelerisque quam.",
     "bullets": []
   }
 }
