@@ -6,12 +6,13 @@ import { Tab, Transition } from "@headlessui/react";
 
 export type ToolsTabKey = keyof typeof ToolsMetadata;
 const Tools = Object.keys(ToolsMetadata) as ToolsTabKey[];
+type AstroIconSlots = Record<`icon${ToolsTabKey}`, React.ReactSVGElement>;
 
-export type ToolsTabListProps = {} & React.HTMLAttributes<HTMLDivElement>;
+export type ToolsTabListProps = {} & Partial<AstroIconSlots> &
+  React.HTMLAttributes<HTMLDivElement>;
 
 function ToolsTabList({ className, ...rest }: ToolsTabListProps) {
   const [active, setActive] = React.useState<ToolsTabKey>("react");
-  console.log(`ACTIVE:${active}`);
 
   return (
     <div className="w-full flex flex-col items-center">
@@ -22,7 +23,12 @@ function ToolsTabList({ className, ...rest }: ToolsTabListProps) {
           {...rest}
         >
           {Tools.map((tool) => (
-            <ToolsTab key={tool} tool={tool} active={tool === active} />
+            <ToolsTab
+              icon={rest[`icon${tool}`]}
+              key={tool}
+              tool={tool}
+              active={tool === active}
+            />
           ))}
         </Tab.List>
         <Tab.Panels>
