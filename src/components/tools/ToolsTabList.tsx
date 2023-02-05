@@ -42,7 +42,7 @@ function ToolsTabList({ className, ...rest }: ToolsTabListProps) {
               enterFrom="opacity-0"
               enterTo="opacity-100"
             >
-              <p className="w-full max-w-3xl text-lg md:text-2xl py-4 px-4 md:px-8">
+              <p className="w-full max-w-3xl text-lg md:text-2xl py-4 px-4 md:px-8 text-center h-32">
                 {ToolsMetadata[tool].description}
               </p>
             </Transition>

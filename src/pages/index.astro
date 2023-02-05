@@ -32,42 +32,48 @@ import PhaserLogo from "assets/images/tools/phaser-logo.png";
   </div>
 
   <div class="flex flex-col space-y-8">
-    <div class="h-72 flex flex-col justify-center items-center">
-      <h2
-        data-animate-in
-        class:list={[
-          "animate-in-start duration-700 transition-all",
-          "text-2xl sm:text-3xl px-4 md:px-24 max-w-6xl text-center",
-        ]}
-      >
-        Recent work in <span class="text-brand-react font-bold">React</span> and
-        <span class="text-brand-phaser font-bold brightness-125">Phaser</span> game
-        development. Strong mobile experience with <span
-          class="text-brand-android font-bold">Android</span
-        > apps and <span class="font-bold text-brand-pwa">PWAs</span>.
-      </h2>
-    </div>
+    <div class="h-screen w-full flex flex-col justify-center space-y-16 pb-24">
+      <div class="flex flex-col justify-center items-center">
+        <h2
+          data-animate-in
+          class:list={[
+            "animate-in-start duration-700 transition-all",
+            "text-2xl sm:text-3xl px-4 md:px-24 max-w-6xl text-center",
+          ]}
+        >
+          Recent work in <span class="text-brand-react font-bold">React</span> and
+          <span class="text-brand-phaser font-bold brightness-125">Phaser</span>
+          game development. Strong mobile experience with <span
+            class="text-brand-android font-bold">Android</span
+          > apps and <span class="font-bold text-brand-pwa">PWAs</span>.
+        </h2>
+      </div>
 
-    <div data-animate-in class="animate-in-start duration-700 transition-all">
-      <ToolsTabList client:load>
-        <Icon
-          slot="iconreact"
-          class="w-8 h-8 md:w-12 md:h-12 p-px text-brand-react"
-          name="mdi:react"
-        />
-        <Icon
-          slot="iconandroid"
-          class="w-8 h-8 md:w-12 md:h-12 text-brand-android"
-          name="mdi:android"
-        />
-        <Icon slot="iconpwa" class="h-8 w-10 md:h-12 md:w-16 p-px" name="pwa" />
-        <img
-          slot="iconphaser"
-          class="h-8 md:h-12 text-xs"
-          alt="Phaser planet and alien logo"
-          src={"/public/images/phaser-logo.png"}
-        />
-      </ToolsTabList>
+      <div data-animate-in class="animate-in-start duration-700 transition-all">
+        <ToolsTabList client:load>
+          <Icon
+            slot="iconreact"
+            class="w-8 h-8 md:w-12 md:h-12 p-px text-brand-react"
+            name="mdi:react"
+          />
+          <Icon
+            slot="iconandroid"
+            class="w-8 h-8 md:w-12 md:h-12 text-brand-android"
+            name="mdi:android"
+          />
+          <Icon
+            slot="iconpwa"
+            class="h-8 w-10 md:h-12 md:w-16 p-px"
+            name="pwa"
+          />
+          <img
+            slot="iconphaser"
+            class="h-8 md:h-12 text-xs"
+            alt="Phaser planet and alien logo"
+            src="/images/phaser-logo.png"
+          />
+        </ToolsTabList>
+      </div>
     </div>
   </div>
 </DefaultLayout>
