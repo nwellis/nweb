@@ -6,7 +6,31 @@ module.exports = function (plop) {
     return new Date(Date.now()).toDateString();
   });
 
-  plop.setGenerator("Preact Component", {
+  plop.setGenerator("Astro Component", {
+    description: "Create a basic Astro component",
+    prompts: [
+      {
+        type: "input",
+        name: "dir",
+        message: "Starting from the src dir, enter the path",
+      },
+      {
+        type: "input",
+        name: "name",
+        message: "Component name?",
+      },
+    ],
+    actions: [
+      {
+        type: "add",
+        path: "src/{{dir}}/{{pascalCase name}}.astro",
+        templateFile: "plop-templates/Component.astro.hbs",
+        // templateFile: "plop-templates/Component.preact.js.hbs",
+      },
+    ],
+  });
+
+  plop.setGenerator("React Component", {
     description: "Create a basic Preact component",
     prompts: [
       {
@@ -30,7 +54,7 @@ module.exports = function (plop) {
     ],
   });
 
-  plop.setGenerator("Preact Hook", {
+  plop.setGenerator("React Hook", {
     description: "Create a basic Preact hook",
     prompts: [
       {

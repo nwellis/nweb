@@ -17,6 +17,7 @@ module.exports = {
 			center: true
 		},
 		colors: {
+      transparent: 'transparent',
 			black: '#090b0c',
 			white: {
 				DEFAULT: '#FEFEFE',
@@ -38,6 +39,14 @@ module.exports = {
 				dark: '#4c1d95',
 				DEFAULT: '#7C3AED',
 				light: '#C4B5FD'
+			},
+			// accent2: {
+			// 	DEFAULT: '#C1F7DC',
+			// },
+			lime: {
+				dark: '#03C969',
+				DEFAULT: '#04F17E',
+				light: '#2AFC98',
 			},
 			brand: {
 				react: '#61dafb',

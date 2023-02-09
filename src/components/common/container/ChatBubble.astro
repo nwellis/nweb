@@ -1,0 +1,29 @@
+---
+export interface Props {}
+
+const {
+  class: classItem = "",
+  "class:list": classList = [],
+  ...rest
+} = Astro.props;
+---
+
+<div
+  class:list={[
+    classItem,
+    ...classList,
+    "relative bg-gray-darker shadow-black shadow-lg rounded-xl",
+  ]}
+  {...rest}
+>
+  <slot />
+  <div
+    class="absolute left-0 top-[95%] w-full flex flex-row justify-start px-12"
+  >
+    <div
+      class="h-12 w-12 bg-gray-darker shadow-black shadow-lg"
+      style={{ clipPath: "polygon(0 0, 100% 0, 0 100%, 0 100%)" }}
+    >
+    </div>
+  </div>
+</div>

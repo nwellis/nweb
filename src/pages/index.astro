@@ -1,7 +1,8 @@
 ---
 import Waves from "../components/3D/Waves";
 import ToolsTabList from "../components/tools/ToolsTabList";
-import DefaultLayout from "../layouts/DefaultLayout.astro";
+import ChatBubble from "components/common/container/ChatBubble.astro";
+import DefaultLayout from "layouts/DefaultLayout.astro";
 import { Icon } from "astro-icon";
 import PhaserLogo from "assets/images/tools/phaser-logo.png";
 ---
@@ -31,8 +32,9 @@ import PhaserLogo from "assets/images/tools/phaser-logo.png";
     <Waves colorHex={0xc4b5fd} client:only="react" />
   </div>
 
-  <div class="flex flex-col space-y-8">
-    <div class="h-screen w-full flex flex-col justify-center space-y-16 pb-24">
+  <div class="flex flex-col">
+    <!-- Hero -->
+    <div class="h-screen w-full flex flex-col justify-center space-y-16">
       <div class="flex flex-col justify-center items-center">
         <h2
           data-animate-in
@@ -74,6 +76,42 @@ import PhaserLogo from "assets/images/tools/phaser-logo.png";
           />
         </ToolsTabList>
       </div>
+
+      <div class="h-24"></div>
     </div>
+
+    <!-- Experience -->
+    <div
+      data-animate-in
+      class:list={[
+        "animate-in-start duration-700 transition-all",
+        "flex flex-row justify-center items-center space-x-16",
+      ]}
+    >
+      <p class="text-3xl leading-loose text-end">
+        <span class="text-7xl font-bold">10 years</span><br />in software
+        including
+      </p>
+
+      <ul class="flex flex-col space-y-2 text-3xl font-semibold">
+        <li>Practical Experience</li>
+        <li>Mentoring and Leadership</li>
+        <li>Problem Solving</li>
+      </ul>
+    </div>
+
+    <!-- <ChatBubble
+      data-animate-in
+      class:list={[
+        "animate-in-start duration-700 transition-all",
+        "flex flex-col w-fit p-4 text-xl max-w-lg",
+      ]}
+    >
+      <p>
+        Experience in a language is meaningless without the fundementals of
+        software engineering. These fundementals apply accross all languages and
+        tools that are ever evolving.
+      </p>
+    </ChatBubble> -->
   </div>
 </DefaultLayout>

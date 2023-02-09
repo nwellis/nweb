@@ -37,8 +37,24 @@ const { tab = "Home", noNav = false } = Astro.props;
               <nav class="w-full flex flex-row justify-between items-center">
                 <div class="flex flex-row space-x-4 md:space-x-8 xl:space-x-12 items-center">
                   <Tab href="/" active={tab === "Home"}>
-                    <h1 class="text-3xl font-extrabold md:hidden">NE</h1>
-                    <h1 class="text-3xl font-extrabold hidden md:block">
+                    <h1
+                      class:list={[
+                        "text-3xl font-extrabold md:hidden",
+                        "bg-clip-text text-transparent bg-gradient-to-r",
+                        // "from-accent-light to-lime-light",
+                        "from-brand-pwa to-brand-react",
+                      ]}
+                    >
+                      NE
+                    </h1>
+                    <h1
+                      class:list={[
+                        "text-3xl font-extrabold hidden md:block",
+                        "bg-clip-text text-transparent bg-gradient-to-r",
+                        // "from-accent-light to-lime-light",
+                        "from-brand-pwa to-brand-react",
+                      ]}
+                    >
                       Nick Ellis
                     </h1>
                   </Tab>
@@ -76,7 +92,7 @@ const { tab = "Home", noNav = false } = Astro.props;
         <slot />
       </main>
 
-      <footer class="dark:bg-gray-light row-start-3 mt-12"></footer>
+      <footer class="dark:bg-gray-light row-start-3 mt-12 h-32"></footer>
     </div>
   </body>
 </html>

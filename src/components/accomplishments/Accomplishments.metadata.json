@@ -2,5 +2,7 @@
   "one": "10 years experience",
   "two": "",
   "other": ["Team leader", "Mentoring", "Pratical experience"],
-  "languages": "Languages are just a tool, I'm a programmer first"
+  "languages": "Languages are just a tool, I'm a programmer first",
+  "quote": "Experience in a language is meaningless without the fundementals of software engineering. These fundementals apply accross all languages and tools that are ever evolving.",
+  "x": "With that being said, its not a bad thing to know your way around a particular language. A few I know..."
 }
