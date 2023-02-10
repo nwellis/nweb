@@ -1,16 +1,12 @@
-import { addComponent, addEntity, createWorld, IWorld } from "bitecs";
 import Phaser from "phaser";
-import {
-  mkPositionComponent,
-  mkVelocityComponent,
-} from "components/game/common/components/Physics";
+import { addComponent, addEntity, createWorld, IWorld, System } from "bitecs";
+import { Position, Velocity } from "components/game/common/components/Physics";
+import { mkSpriteSystem } from "../common/systems/Sprite";
 
 export default class DemoScene extends Phaser.Scene {
   protected world: IWorld;
-
-  protected comp = {
-    position: mkPositionComponent(),
-    velocity: mkVelocityComponent(),
+  protected systems = {
+    sprite: undefined as System,
   };
 
   constructor() {
@@ -21,13 +17,17 @@ export default class DemoScene extends Phaser.Scene {
 
   create() {
     this.world = createWorld();
+
     const player = addEntity(this.world);
+    addComponent(this.world, Position, player);
 
-    addComponent(this.world, this.comp.position, player);
+    Position.x[player] = 100;
+    Position.y[player] = 100;
 
-    this.comp.position.x[player] = 100;
-    this.comp.position.y[player] = 100;
+    this.systems.sprite = mkSpriteSystem(this, []);
   }
 
-  update(t: number, dt: number) {}
+  update(t: number, dt: number) {
+    this.systems.sprite(this);
+  }
 }
