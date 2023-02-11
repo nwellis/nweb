@@ -37,6 +37,7 @@ const { tab = "Home", noNav = false } = Astro.props;
               <nav class="w-full flex flex-row justify-between items-center">
                 <div class="flex flex-row space-x-4 md:space-x-8 xl:space-x-12 items-center">
                   <Tab href="/" active={tab === "Home"}>
+                    {/** 
                     <h1
                       class:list={[
                         "text-3xl font-extrabold md:hidden",
@@ -47,9 +48,11 @@ const { tab = "Home", noNav = false } = Astro.props;
                     >
                       NE
                     </h1>
+                  */}
                     <h1
                       class:list={[
-                        "text-3xl font-extrabold hidden md:block",
+                        "text-3xl font-extrabold",
+                        // "text-3xl font-extrabold hidden md:block",
                         "bg-clip-text text-transparent bg-gradient-to-r",
                         // "from-accent-light to-lime-light",
                         "from-brand-pwa to-brand-react",
@@ -58,15 +61,17 @@ const { tab = "Home", noNav = false } = Astro.props;
                       Nick Ellis
                     </h1>
                   </Tab>
+                  {/** 
                   <Tab href="/work" active={tab === "Work"}>
                     Work
                   </Tab>
                   <Tab href="/projects" active={tab === "Projects"}>
                     Projects
                   </Tab>
+                  */}
                 </div>
 
-                <div class="hidden sm:flex flex-row space-x-1 sm:space-x-6  items-center">
+                <div class="flex flex-row space-x-1 sm:space-x-6 items-center">
                   <a
                     href="https://github.com/nwellis"
                     target="_blank"
