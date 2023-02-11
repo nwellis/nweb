@@ -1,10 +1,8 @@
-import * as React from "react";
+import React from "react";
 import clsx from "clsx";
 import ToolsMetadata from "components/tools/ToolsTabList.metadata.json";
 import ToolsTab from "./ToolsTab";
 import { Tab, Transition } from "@headlessui/react";
-import Phaser from "phaser";
-import DemoCanvas from "components/game/canvas/DemoCanvas";
 
 export type ToolsTabKey = keyof typeof ToolsMetadata;
 const Tools = Object.keys(ToolsMetadata) as ToolsTabKey[];
@@ -47,9 +45,6 @@ function ToolsTabList({ className, ...rest }: ToolsTabListProps) {
               <p className="w-full max-w-3xl text-lg md:text-2xl py-4 px-4 md:px-8 text-center h-32">
                 {ToolsMetadata[tool].description}
               </p>
-              {/* <div className="max-w-lg">
-                <DemoCanvas hide={tool !== "phaser"} />
-              </div> */}
             </Transition>
           ))}
         </Tab.Panels>
