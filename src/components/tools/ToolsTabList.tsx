@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import clsx from "clsx";
 import ToolsMetadata from "components/tools/ToolsTabList.metadata.json";
 import ToolsTab from "./ToolsTab";

@@ -1,10 +1,9 @@
 ---
 import Waves from "../components/3D/Waves";
 import ToolsTabList from "../components/tools/ToolsTabList";
-import ChatBubble from "components/common/container/ChatBubble.astro";
 import DefaultLayout from "layouts/DefaultLayout.astro";
 import { Icon } from "astro-icon";
-import PhaserLogo from "assets/images/tools/phaser-logo.png";
+import LazyLoadCanvas from "components/game/LazyLoadCanvas";
 ---
 
 <script>
@@ -32,52 +31,53 @@ import PhaserLogo from "assets/images/tools/phaser-logo.png";
     <Waves colorHex={0xc4b5fd} client:only="react" />
   </div>
 
-  <div class="flex flex-col">
-    <!-- Hero -->
-    <div class="h-screen w-full flex flex-col justify-center space-y-16">
-      <div class="flex flex-col justify-center items-center">
-        <h2
-          data-animate-in
-          class:list={[
-            "animate-in-start duration-700 transition-all",
-            "text-2xl sm:text-3xl px-4 md:px-24 max-w-6xl text-center",
-          ]}
-        >
-          Recent work in <span class="text-brand-react font-bold">React</span> and
-          <span class="text-brand-phaser font-bold brightness-125">Phaser</span>
-          game development. Strong mobile experience with <span
-            class="text-brand-android font-bold">Android</span
-          > apps and <span class="font-bold text-brand-pwa">PWAs</span>.
-        </h2>
-      </div>
+  <div class="flex flex-col py-16 space-y-20 items-center">
+    <div class="flex flex-col justify-center items-center">
+      <h2
+        data-animate-in
+        class:list={[
+          "animate-in-start duration-700 transition-all",
+          "text-2xl sm:text-3xl px-4 md:px-24 max-w-6xl text-center",
+        ]}
+      >
+        Recent work in <span class="text-brand-react font-bold">React</span> and
+        <span class="text-brand-phaser font-bold brightness-125">Phaser</span>
+        game development. Strong mobile experience with <span
+          class="text-brand-android font-bold">Android</span
+        > apps and <span class="font-bold text-brand-pwa">PWAs</span>.
+      </h2>
+    </div>
 
-      <div data-animate-in class="animate-in-start duration-700 transition-all">
-        <ToolsTabList client:load>
-          <Icon
-            slot="iconreact"
-            class="w-8 h-8 md:w-12 md:h-12 p-px text-brand-react"
-            name="mdi:react"
-          />
-          <Icon
-            slot="iconandroid"
-            class="w-8 h-8 md:w-12 md:h-12 text-brand-android"
-            name="mdi:android"
-          />
-          <Icon
-            slot="iconpwa"
-            class="h-8 w-10 md:h-12 md:w-16 p-px"
-            name="pwa"
-          />
-          <img
-            slot="iconphaser"
-            class="h-8 md:h-12 text-xs"
-            alt="Phaser planet and alien logo"
-            src="/images/phaser-logo.png"
-          />
-        </ToolsTabList>
-      </div>
+    <div
+      class:list={[
+        "w-72 h-44 lg:w-[32rem] lg:h-80 rounded-2xl bg-black overflow-clip",
+        "flex flex-col items-center justify-center",
+      ]}
+    >
+      <LazyLoadCanvas client:only canvas="Demo" />
+    </div>
 
-      <div class="h-24"></div>
+    <!-- Frameworks -->
+    <div data-animate-in class="animate-in-start duration-700 transition-all">
+      <ToolsTabList client:only>
+        <Icon
+          slot="iconreact"
+          class="w-8 h-8 md:w-12 md:h-12 p-px text-brand-react"
+          name="mdi:react"
+        />
+        <Icon
+          slot="iconandroid"
+          class="w-8 h-8 md:w-12 md:h-12 text-brand-android"
+          name="mdi:android"
+        />
+        <Icon slot="iconpwa" class="h-8 w-10 md:h-12 md:w-16 p-px" name="pwa" />
+        <img
+          slot="iconphaser"
+          class="h-8 md:h-12 text-xs"
+          alt="Phaser planet and alien logo"
+          src="/images/phaser-logo.png"
+        />
+      </ToolsTabList>
     </div>
 
     <!-- Experience -->
@@ -85,15 +85,17 @@ import PhaserLogo from "assets/images/tools/phaser-logo.png";
       data-animate-in
       class:list={[
         "animate-in-start duration-700 transition-all",
-        "flex flex-row justify-center items-center space-x-16",
+        "flex flex-col space-y-4 lg:flex-row lg:space-x-16 lg:space-y-0 justify-center items-center",
       ]}
     >
-      <p class="text-3xl leading-loose text-end">
-        <span class="text-7xl font-bold">10 years</span><br />in software
-        including
+      <p class="text-lg lg:text-3xl leading-loose text-end">
+        <span class="text-5xl lg:text-7xl font-bold">10 years</span><br />in
+        software including
       </p>
 
-      <ul class="flex flex-col space-y-2 text-3xl font-semibold">
+      <ul
+        class="flex flex-col items-center lg:items-start space-y-2 text-xl lg:text-3xl font-semibold"
+      >
         <li>Practical Experience</li>
         <li>Mentoring and Leadership</li>
         <li>Problem Solving</li>
