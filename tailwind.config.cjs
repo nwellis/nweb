@@ -52,6 +52,7 @@ module.exports = {
 				react: '#61dafb',
 				android: '#a4c639',
 				phaser: '#99388c',
+				phaserLight: '#CD79C2',
 				linkedin: '#0a66c2',
 				pwa: '#C4B5FD'
 			},
