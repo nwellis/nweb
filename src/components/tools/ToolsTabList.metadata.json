@@ -1,7 +1,7 @@
 {
   "react": {
     "name": "React",
-    "description": "Built applications with complex requirements. From these challenges, I've developed strong fundementals in state management, performance, and managing large projects.",
+    "description": "Built applications with complex requirements. From these challenges, I've developed strong fundamentals in state management, performance, and managing large projects.",
     "bullets": ["Chat Apps", "Forms and Searches", "Server State Sync"]
   },
   "android": {
@@ -11,7 +11,7 @@
   },
   "pwa": {
     "name": "PWA",
-    "description": "Worked with complicated service worker caching requirements and edge cases. Knowledge around Workbox as a solution, and changing storage behavior on mobile devices to work around limitations",
+    "description": "Worked with complicated service worker caching requirements and edge cases. Knowledge around Workbox as a solution, and changing storage behavior on mobile devices to work around limitations.",
     "bullets": []
   },
   "phaser": {
