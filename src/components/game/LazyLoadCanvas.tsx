@@ -15,6 +15,7 @@ export type LazyLoadCanvasProps = {
 const Loading = () => (
   <h2 className="font-mono text-4xl animate-pulse">Loading…</h2>
 );
+const TODO = () => <h2 className="font-mono text-2xl">TODO: Make a game</h2>;
 
 function LazyLoadCanvas({
   canvas,
@@ -22,9 +23,11 @@ function LazyLoadCanvas({
   className,
   ...rest
 }: LazyLoadCanvasProps) {
+  const LazyCanvas = Canvas[canvas];
   return (
     <React.Suspense fallback={fallback || <Loading />}>
-      <Canvas.Demo className={clsx(className, "flex flex-col")} {...rest} />
+      <TODO />
+      {/* <LazyCanvas className={clsx(className, "flex flex-col")} {...rest} /> */}
     </React.Suspense>
   );
 }
