@@ -6,7 +6,7 @@ import { WavesShaderMaterial } from "./WaveParticles.shaders";
 const SEPARATION = 128,
   AMOUNT_X = 80,
   AMOUNT_Y = 60,
-  SPEED = 0.015,
+  SPEED = 0.006,
   DOT_SCALING_FACTOR = 20,
   WAVE_ROUGHNESS = 0.7,
   WAVE_INTENSITY = 40;
