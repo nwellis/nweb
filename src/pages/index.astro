@@ -56,12 +56,12 @@ import LazyLoadCanvas from "components/game/LazyLoadCanvas";
         "flex flex-col items-center justify-center",
       ]}
     >
-      <LazyLoadCanvas client:only canvas="Demo" />
+      <LazyLoadCanvas client:only="react" canvas="Demo" />
     </div>
 
     <!-- Frameworks -->
     <div data-animate-in class="animate-in-start duration-700 transition-all">
-      <ToolsTabList client:only>
+      <ToolsTabList client:load>
         <Icon
           slot="iconreact"
           class="w-8 h-8 md:w-12 md:h-12 p-px text-brand-react"
