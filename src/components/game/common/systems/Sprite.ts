@@ -9,11 +9,11 @@ import {
 import { Sprite } from "components/game/common/components/Sprite";
 import { Position } from "../components/Physics";
 
-export const SpriteQuery = defineQuery([Sprite]);
-export const SpriteQueryEnter = enterQuery(SpriteQuery);
-export const SpriteQueryExit = exitQuery(SpriteQuery);
-
 export const mkSpriteSystem = (scene: Phaser.Scene, textures: string[]) => {
+  const SpriteQuery = defineQuery([Sprite]);
+  const SpriteQueryEnter = enterQuery(SpriteQuery);
+  const SpriteQueryExit = exitQuery(SpriteQuery);
+
   scene.data.set("SpritesById", new Map<number, Phaser.GameObjects.Sprite>());
 
   return defineSystem((world: IWorld) => {
@@ -26,7 +26,20 @@ export const mkSpriteSystem = (scene: Phaser.Scene, textures: string[]) => {
       const textureId = Sprite.texture[id];
       const texture = textures[textureId];
 
+      // console.log(`ADDING SPRITE ${id}:${texture}`);
       spritesById.set(id, scene.add.sprite(0, 0, texture));
+
+      // https://phaser.io/examples/v3/view/animation/create-animation-from-sprite-sheet
+      const sprite = spritesById.get(id);
+      sprite.anims.create({
+        key: "move-down",
+        frameRate: 4,
+        repeat: -1,
+        frames: sprite.anims.generateFrameNumbers("player", {
+          frames: [3, 5],
+        }),
+      });
+      sprite.play("move-down");
     }
 
     const entities = SpriteQuery(world);

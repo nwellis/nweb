@@ -2,10 +2,14 @@ import Phaser from "phaser";
 import { addComponent, addEntity, createWorld, IWorld, System } from "bitecs";
 import { Position, Velocity } from "components/game/common/components/Physics";
 import { mkSpriteSystem } from "../common/systems/Sprite";
+import { Sprite } from "../common/components/Sprite";
+import { mkMovementSystem } from "../common/systems/Movement";
+import { Player } from "../common/components/Player";
+import { mkPlayerSystem } from "../common/systems/Player";
 
 export default class DemoScene extends Phaser.Scene {
-  private static Width = 16 * 64; // 1024
-  private static Height = 16 * 40; // 640
+  private static Width = 16 * 8; // 1024
+  private static Height = 16 * 5; // 640
   static Scaling: Phaser.Types.Core.ScaleConfig = {
     mode: Phaser.Scale.ENVELOP,
     autoCenter: Phaser.Scale.CENTER_HORIZONTALLY,
@@ -16,27 +20,61 @@ export default class DemoScene extends Phaser.Scene {
   protected world: IWorld;
   protected systems = {
     sprite: undefined as System,
+    movement: undefined as System,
+    player: undefined as System,
   };
+
+  protected cursors: Phaser.Types.Input.Keyboard.CursorKeys;
 
   constructor() {
     super("Demo");
   }
 
-  preload() {}
+  init() {
+    this.cursors = this.input.keyboard.createCursorKeys();
+  }
+
+  preload() {
+    this.load.spritesheet("player", "game/characters.png", {
+      frameWidth: 16,
+      frameHeight: 16,
+    });
+  }
 
   create() {
     this.world = createWorld();
 
-    const player = addEntity(this.world);
-    addComponent(this.world, Position, player);
-
-    Position.x[player] = 100;
-    Position.y[player] = 100;
-
-    this.systems.sprite = mkSpriteSystem(this, []);
+    this.addPlayer();
+    this.systems.player = mkPlayerSystem(this.cursors);
+    this.systems.movement = mkMovementSystem(this);
+    this.systems.sprite = mkSpriteSystem(this, ["player"]);
   }
 
   update(t: number, dt: number) {
-    this.systems.sprite(this);
+    if (!this.world) return;
+
+    this.systems.player(this.world);
+    this.systems.movement(this.world);
+    this.systems.sprite(this.world);
+  }
+
+  addPlayer() {
+    const player = addEntity(this.world);
+
+    addComponent(this.world, Position, player);
+    Position.x[player] = this.scale.width / 2;
+    Position.y[player] = this.scale.height / 2;
+
+    addComponent(this.world, Velocity, player);
+    Velocity.x[player] = 0;
+    Velocity.y[player] = 0;
+
+    addComponent(this.world, Sprite, player);
+    Sprite.texture[player] = 0;
+
+    addComponent(this.world, Player, player);
+    Sprite.texture[player] = 0;
+
+    return player;
   }
 }
