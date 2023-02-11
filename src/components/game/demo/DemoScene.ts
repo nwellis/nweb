@@ -1,6 +1,10 @@
 import Phaser from "phaser";
 import { addComponent, addEntity, createWorld, IWorld, System } from "bitecs";
-import { Position, Velocity } from "components/game/common/components/Physics";
+import {
+  Position,
+  Rotation,
+  Velocity,
+} from "components/game/common/components/Physics";
 import { mkSpriteSystem } from "../common/systems/Sprite";
 import { Sprite } from "../common/components/Sprite";
 import { mkMovementSystem } from "../common/systems/Movement";
@@ -8,8 +12,8 @@ import { Player } from "../common/components/Player";
 import { mkPlayerSystem } from "../common/systems/Player";
 
 export default class DemoScene extends Phaser.Scene {
-  private static Width = 16 * 8; // 1024
-  private static Height = 16 * 5; // 640
+  private static Width = 16 * 16; // 1024
+  private static Height = 16 * 10; // 640
   static Scaling: Phaser.Types.Core.ScaleConfig = {
     mode: Phaser.Scale.ENVELOP,
     autoCenter: Phaser.Scale.CENTER_HORIZONTALLY,
@@ -35,7 +39,7 @@ export default class DemoScene extends Phaser.Scene {
   }
 
   preload() {
-    this.load.spritesheet("player", "game/characters.png", {
+    this.load.spritesheet("characters", "game/characters.png", {
       frameWidth: 16,
       frameHeight: 16,
     });
@@ -64,6 +68,9 @@ export default class DemoScene extends Phaser.Scene {
     addComponent(this.world, Position, player);
     Position.x[player] = this.scale.width / 2;
     Position.y[player] = this.scale.height / 2;
+
+    addComponent(this.world, Rotation, player);
+    Rotation.angle[player] = 0;
 
     addComponent(this.world, Velocity, player);
     Velocity.x[player] = 0;
