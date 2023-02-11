@@ -4,6 +4,15 @@ import { Position, Velocity } from "components/game/common/components/Physics";
 import { mkSpriteSystem } from "../common/systems/Sprite";
 
 export default class DemoScene extends Phaser.Scene {
+  private static Width = 16 * 64; // 1024
+  private static Height = 16 * 40; // 640
+  static Scaling: Phaser.Types.Core.ScaleConfig = {
+    mode: Phaser.Scale.ENVELOP,
+    autoCenter: Phaser.Scale.CENTER_HORIZONTALLY,
+    width: this.Width,
+    height: this.Height,
+  };
+
   protected world: IWorld;
   protected systems = {
     sprite: undefined as System,

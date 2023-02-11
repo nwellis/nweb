@@ -1,24 +1,13 @@
-import * as React from "react";
+import React from "react";
 import clsx from "clsx";
-import * as Phaser from "phaser";
+import Phaser from "phaser";
 import BaseCanvas, { BaseCanvasProps } from "./BaseCanvas";
+import DemoScene from "../demo/DemoScene";
 
 export const DemoCanvasConfig: Phaser.Types.Core.GameConfig = {
-  scale: {
-    mode: Phaser.Scale.ENVELOP,
-    autoCenter: Phaser.Scale.CENTER_HORIZONTALLY,
-    width: 1080,
-    height: 685,
-    min: {
-      width: 450,
-      height: 295,
-    },
-    max: {
-      width: 1180,
-      height: 820,
-    },
-  },
+  scale: DemoScene.Scaling,
   transparent: false,
+  // backgroundColor: "#00FF00",
   type: Phaser.AUTO,
 };
 
