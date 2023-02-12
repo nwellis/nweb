@@ -5,17 +5,26 @@ import {
   Rotation,
   Velocity,
 } from "components/game/common/components/Physics";
-import { Sprite } from "../common/components/Sprite";
+import { Sprite, SpriteCharacter } from "../common/components/Sprite";
 import { Player } from "../common/components/Player";
-import { mkSpriteSystem } from "../common/systems/Sprite";
+import {
+  mkSpriteCharacterSystem,
+  mkSpriteSystem,
+} from "../common/systems/Sprite";
 import { mkPlayerSystem } from "../common/systems/Player";
 import { mkMovementSystem } from "../common/systems/Movement";
 import {
   SpriteSheetConfig,
   SpriteSheetTextures,
 } from "../common/config/SpriteSheets";
+import {
+  CharacterAnimationConfig,
+  CharacterKey,
+  CharacterKeys,
+} from "../common/config/animation/CharacterAnimations";
+import BaseScene from "../common/BaseScene";
 
-export default class DemoScene extends Phaser.Scene {
+export default class DemoScene extends BaseScene {
   private static Width = 16 * 16; // 1024
   private static Height = 16 * 10; // 640
   static Scaling: Phaser.Types.Core.ScaleConfig = {
@@ -28,6 +37,7 @@ export default class DemoScene extends Phaser.Scene {
   protected world: IWorld;
   protected systems = {
     sprite: undefined as System,
+    spriteAnimated: undefined as System,
     movement: undefined as System,
     player: undefined as System,
   };
@@ -51,10 +61,12 @@ export default class DemoScene extends Phaser.Scene {
   create() {
     this.world = createWorld();
 
-    this.addPlayer();
+    this.addCharacter("player-male");
+
     this.systems.player = mkPlayerSystem(this.cursors);
     this.systems.movement = mkMovementSystem(this);
     this.systems.sprite = mkSpriteSystem(this, SpriteSheetTextures);
+    this.systems.spriteAnimated = mkSpriteCharacterSystem(this, CharacterKeys);
   }
 
   update(t: number, dt: number) {
@@ -63,9 +75,10 @@ export default class DemoScene extends Phaser.Scene {
     this.systems.player(this.world);
     this.systems.movement(this.world);
     this.systems.sprite(this.world);
+    this.systems.spriteAnimated(this.world);
   }
 
-  addPlayer() {
+  addCharacter(character: CharacterKey) {
     const player = addEntity(this.world);
 
     addComponent(this.world, Position, player);
@@ -81,6 +94,10 @@ export default class DemoScene extends Phaser.Scene {
 
     addComponent(this.world, Sprite, player);
     Sprite.textureId[player] = SpriteSheetConfig["characters"].textureId;
+
+    addComponent(this.world, SpriteCharacter, player);
+    SpriteCharacter.characterId[player] =
+      CharacterAnimationConfig[character].characterId;
 
     addComponent(this.world, Player, player);
 

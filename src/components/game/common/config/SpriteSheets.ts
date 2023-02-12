@@ -28,3 +28,5 @@ export const SpriteSheetTextures = Object.values(SpriteSheetConfig).reduce(
   },
   {} as Record<number, SpriteSheetTexture>
 );
+
+Object.freeze(SpriteSheetTextures);

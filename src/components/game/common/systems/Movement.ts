@@ -8,9 +8,9 @@ export const mkMovementSystem = (scene: Phaser.Scene) => {
   return defineSystem((world: IWorld) => {
     const entities = query(world);
     for (let i = 0; i < entities.length; ++i) {
-      const id = entities[i];
-      Position.x[id] += Velocity.x[id];
-      Position.y[id] += Velocity.y[id];
+      const eid = entities[i];
+      Position.x[eid] += Velocity.x[eid];
+      Position.y[eid] += Velocity.y[eid];
     }
 
     return world;

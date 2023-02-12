@@ -12,26 +12,26 @@ export const mkPlayerSystem = (
   return defineSystem((world: IWorld) => {
     const entities = query(world);
     for (let i = 0; i < entities.length; ++i) {
-      const id = entities[i];
+      const eid = entities[i];
       if (cursors.left.isDown) {
-        Velocity.x[id] = -velocity;
-        Velocity.y[id] = 0;
-        Rotation.angle[id] = 270;
+        Velocity.x[eid] = -velocity;
+        Velocity.y[eid] = 0;
+        Rotation.angle[eid] = 270;
       } else if (cursors.right.isDown) {
-        Velocity.x[id] = velocity;
-        Velocity.y[id] = 0;
-        Rotation.angle[id] = 90;
+        Velocity.x[eid] = velocity;
+        Velocity.y[eid] = 0;
+        Rotation.angle[eid] = 90;
       } else if (cursors.up.isDown) {
-        Velocity.x[id] = 0;
-        Velocity.y[id] = -velocity;
-        Rotation.angle[id] = 0;
+        Velocity.x[eid] = 0;
+        Velocity.y[eid] = -velocity;
+        Rotation.angle[eid] = 0;
       } else if (cursors.down.isDown) {
-        Velocity.x[id] = 0;
-        Velocity.y[id] = velocity;
-        Rotation.angle[id] = 180;
+        Velocity.x[eid] = 0;
+        Velocity.y[eid] = velocity;
+        Rotation.angle[eid] = 180;
       } else {
-        Velocity.x[id] = 0;
-        Velocity.y[id] = 0;
+        Velocity.x[eid] = 0;
+        Velocity.y[eid] = 0;
       }
     }
 

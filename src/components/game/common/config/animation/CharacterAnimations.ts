@@ -22,9 +22,10 @@ export const CharacterAnimationConfig = mkConfig(
   mk("player-male", "characters", 1)
 );
 
-export const CharacterAnimationTextures = Object.values(
-  CharacterAnimationConfig
-).reduce((textures, config) => {
-  textures[config.characterId] = config;
-  return textures;
-}, {} as Record<number, CharacterAnimationsConfig>);
+export const CharacterKeys = Object.values(CharacterAnimationConfig).reduce(
+  (textures, config) => {
+    textures[config.characterId] = config.key;
+    return textures;
+  },
+  {} as Record<number, CharacterKey>
+);

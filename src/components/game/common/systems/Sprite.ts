@@ -1,4 +1,4 @@
-import Phaser from "phaser";
+import BaseScene from "components/game/common/BaseScene";
 import {
   defineQuery,
   defineSystem,
@@ -6,58 +6,101 @@ import {
   exitQuery,
   IWorld,
 } from "bitecs";
-import { Sprite } from "components/game/common/components/Sprite";
-import { Position } from "../components/Physics";
-import { CharacterAnimationConfig } from "../config/animation/CharacterAnimations";
+import {
+  Sprite,
+  SpriteCharacter,
+} from "components/game/common/components/Sprite";
+import { Position } from "components/game/common/components/Physics";
+import {
+  CharacterAnimationConfig,
+  CharacterKey,
+} from "components/game/common/config/animation/CharacterAnimations";
 
 export const mkSpriteSystem = (
-  scene: Phaser.Scene,
+  scene: BaseScene,
   textures: Record<number, string>
 ) => {
-  const SpriteQuery = defineQuery([Sprite]);
-  const SpriteQueryEnter = enterQuery(SpriteQuery);
-  const SpriteQueryExit = exitQuery(SpriteQuery);
-
-  scene.data.set("SpritesById", new Map<number, Phaser.GameObjects.Sprite>());
+  const query = defineQuery([Sprite]);
+  const queryEnter = enterQuery(query);
+  const queryExit = exitQuery(query);
 
   return defineSystem((world: IWorld) => {
-    const spritesById: Map<number, Phaser.GameObjects.Sprite> =
-      scene.data.get("SpritesById");
-
-    const enterEntities = SpriteQueryEnter(world);
+    const enterEntities = queryEnter(world);
     for (let i = 0; i < enterEntities.length; i++) {
-      const id = enterEntities[i];
-      const textureId = Sprite.textureId[id];
+      const eid = enterEntities[i];
+      const textureId = Sprite.textureId[eid];
       const texture = textures[textureId];
-      console.log(`${textureId} => ${texture}`);
 
-      // console.log(`ADDING SPRITE ${id}:${texture}`);
-      const sprite = scene.add.sprite(0, 0, texture);
-      spritesById.set(id, sprite);
+      scene.sprites.set(eid, scene.add.sprite(0, 0, texture));
     }
 
-    const entities = SpriteQuery(world);
+    const entities = query(world);
     for (let i = 0; i < entities.length; i++) {
-      const id = entities[i];
-      const sprite = spritesById.get(id);
+      const eid = entities[i];
+      const sprite = scene.sprites.get(eid);
       if (!sprite) {
         continue;
       }
 
-      sprite.x = Position.x[id];
-      sprite.y = Position.y[id];
+      sprite.x = Position.x[eid];
+      sprite.y = Position.y[eid];
     }
 
-    const exitEntities = SpriteQueryExit(world);
+    const exitEntities = queryExit(world);
     for (let i = 0; i < exitEntities.length; i++) {
-      const id = entities[i];
-      const sprite = spritesById.get(id);
+      const eid = entities[i];
+      const sprite = scene.sprites.get(eid);
       if (!sprite) {
         continue;
       }
 
       sprite.destroy(true);
-      spritesById.delete(id);
+      scene.sprites.delete(eid);
+    }
+
+    return world;
+  });
+};
+
+export const mkSpriteCharacterSystem = (
+  scene: BaseScene,
+  animations: Record<number, CharacterKey>
+) => {
+  const query = defineQuery([Sprite, SpriteCharacter]);
+  const queryEnter = enterQuery(query);
+
+  return defineSystem((world: IWorld) => {
+    const enterEntities = queryEnter(world);
+    for (let i = 0; i < enterEntities.length; i++) {
+      const eid = enterEntities[i];
+      const sprite = scene.sprites.get(eid);
+      if (!sprite) {
+        continue;
+      }
+
+      const animation = animations[SpriteCharacter.characterId[eid]];
+      if (animation) {
+        const config = CharacterAnimationConfig[animation];
+        Object.values(config.for).forEach(({ frames, ...animation }) => {
+          sprite.anims.create({
+            ...animation,
+            frames: sprite.anims.generateFrameNumbers(config.texture, {
+              frames,
+            }),
+          });
+        });
+
+        sprite.play("move-down");
+      }
+    }
+
+    const entities = query(world);
+    for (let i = 0; i < entities.length; i++) {
+      const id = enterEntities[i];
+      const sprite = scene.sprites.get(id);
+      if (!sprite) {
+        continue;
+      }
     }
 
     return world;
