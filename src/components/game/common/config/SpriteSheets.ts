@@ -20,6 +20,7 @@ export const SpriteSheetConfig = mkConfig(
   })
 );
 
+// https://github.com/NateTheGreatt/bitECS/blob/84d5905c39e396fdeb597030d0a1d5a5ce5d5292/docs/FAQ.md
 export const SpriteSheetTextures = Object.values(SpriteSheetConfig).reduce(
   (textures, config) => {
     textures[config.textureId] = config.key;
