@@ -10,7 +10,11 @@ import {
   Sprite,
   SpriteCharacter,
 } from "components/game/common/components/Sprite";
-import { Position } from "components/game/common/components/Physics";
+import {
+  Position,
+  Rotation,
+  Velocity,
+} from "components/game/common/components/Physics";
 import {
   CharacterAnimationConfig,
   CharacterKey,
@@ -66,7 +70,7 @@ export const mkSpriteCharacterSystem = (
   scene: BaseScene,
   animations: Record<number, CharacterKey>
 ) => {
-  const query = defineQuery([Sprite, SpriteCharacter]);
+  const query = defineQuery([Sprite, SpriteCharacter, Rotation, Velocity]);
   const queryEnter = enterQuery(query);
 
   return defineSystem((world: IWorld) => {
@@ -90,16 +94,23 @@ export const mkSpriteCharacterSystem = (
           });
         });
 
-        sprite.play("move-down");
+        sprite.play("idle-down");
       }
     }
 
     const entities = query(world);
     for (let i = 0; i < entities.length; i++) {
-      const id = enterEntities[i];
-      const sprite = scene.sprites.get(id);
+      const eid = entities[i];
+      const sprite = scene.sprites.get(eid);
       if (!sprite) {
         continue;
+      }
+
+      const velocity = Math.abs(Velocity.x[eid] + Velocity.y[eid]);
+      if (velocity > 0) {
+        sprite.play("move-down");
+      } else {
+        sprite.play("idle-down");
       }
     }
 
