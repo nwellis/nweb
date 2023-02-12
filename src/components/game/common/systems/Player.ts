@@ -6,13 +6,13 @@ import { Player } from "../components/Player";
 export const mkPlayerSystem = (
   cursors: Phaser.Types.Input.Keyboard.CursorKeys
 ) => {
-  const velocity = 0.1;
   const query = defineQuery([Player, Velocity, Rotation]);
 
   return defineSystem((world: IWorld) => {
     const entities = query(world);
     for (let i = 0; i < entities.length; ++i) {
       const eid = entities[i];
+      const velocity = Player.velocity[eid];
       if (cursors.left.isDown) {
         Velocity.x[eid] = -velocity;
         Velocity.y[eid] = 0;

@@ -93,7 +93,6 @@ export const mkSpriteCharacterSystem = (
             }),
           });
         });
-        console.log(sprite.anims);
       }
     }
 

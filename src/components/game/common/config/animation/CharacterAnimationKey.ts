@@ -41,7 +41,6 @@ function framesFor(key: CharacterAnimationKey, section: number) {
   const cols = animationColShifts.map((col) => col + sectionColShift);
 
   const frames = cols.map((col) => row * 12 + col);
-  if (cols.length > 1) console.log(key, row, cols, frames);
   return frames;
 }
 

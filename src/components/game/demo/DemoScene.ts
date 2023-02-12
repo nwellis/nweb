@@ -61,7 +61,7 @@ export default class DemoScene extends BaseScene {
   create() {
     this.world = createWorld();
 
-    this.addCharacter("player-male");
+    this.addCharacter("player-male", 0.5);
 
     this.systems.player = mkPlayerSystem(this.cursors);
     this.systems.movement = mkMovementSystem(this);
@@ -78,7 +78,7 @@ export default class DemoScene extends BaseScene {
     this.systems.spriteAnimated(this.world);
   }
 
-  addCharacter(character: CharacterKey) {
+  addCharacter(character: CharacterKey, velocity = 0.1) {
     const player = addEntity(this.world);
 
     addComponent(this.world, Position, player);
@@ -100,6 +100,7 @@ export default class DemoScene extends BaseScene {
       CharacterAnimationConfig[character].characterId;
 
     addComponent(this.world, Player, player);
+    Player.velocity[player] = velocity;
 
     return player;
   }
