@@ -5,11 +5,15 @@ import {
   Rotation,
   Velocity,
 } from "components/game/common/components/Physics";
-import { mkSpriteSystem } from "../common/systems/Sprite";
 import { Sprite } from "../common/components/Sprite";
-import { mkMovementSystem } from "../common/systems/Movement";
 import { Player } from "../common/components/Player";
+import { mkSpriteSystem } from "../common/systems/Sprite";
 import { mkPlayerSystem } from "../common/systems/Player";
+import { mkMovementSystem } from "../common/systems/Movement";
+import {
+  SpriteSheetConfig,
+  SpriteSheetTextures,
+} from "../common/config/SpriteSheets";
 
 export default class DemoScene extends Phaser.Scene {
   private static Width = 16 * 16; // 1024
@@ -39,10 +43,9 @@ export default class DemoScene extends Phaser.Scene {
   }
 
   preload() {
-    this.load.spritesheet("characters", "game/characters.png", {
-      frameWidth: 16,
-      frameHeight: 16,
-    });
+    Object.values(SpriteSheetConfig).forEach((config) =>
+      this.load.spritesheet(config)
+    );
   }
 
   create() {
@@ -51,7 +54,7 @@ export default class DemoScene extends Phaser.Scene {
     this.addPlayer();
     this.systems.player = mkPlayerSystem(this.cursors);
     this.systems.movement = mkMovementSystem(this);
-    this.systems.sprite = mkSpriteSystem(this, ["player"]);
+    this.systems.sprite = mkSpriteSystem(this, SpriteSheetTextures);
   }
 
   update(t: number, dt: number) {
@@ -77,10 +80,9 @@ export default class DemoScene extends Phaser.Scene {
     Velocity.y[player] = 0;
 
     addComponent(this.world, Sprite, player);
-    Sprite.texture[player] = 0;
+    Sprite.textureId[player] = SpriteSheetConfig["characters"].textureId;
 
     addComponent(this.world, Player, player);
-    Sprite.texture[player] = 0;
 
     return player;
   }
