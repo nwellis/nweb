@@ -41,7 +41,7 @@ function framesFor(key: CharacterAnimationKey, section: number) {
   const cols = animationColShifts.map((col) => col + sectionColShift);
 
   const frames = cols.map((col) => row * 12 + col);
-  // console.log(key, row, cols, frames);
+  if (cols.length > 1) console.log(key, row, cols, frames);
   return frames;
 }
 
@@ -50,9 +50,9 @@ export function mkAnimationFramesFor(section: number) {
     (animations, animation) => {
       animations[animation] = {
         key: animation,
+        frames: framesFor(animation, section),
         frameRate: 4,
         repeat: -1,
-        frames: framesFor(animation, section),
       };
       return animations;
     },

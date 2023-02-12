@@ -93,8 +93,7 @@ export const mkSpriteCharacterSystem = (
             }),
           });
         });
-
-        sprite.play("idle-down");
+        console.log(sprite.anims);
       }
     }
 
@@ -109,14 +108,19 @@ export const mkSpriteCharacterSystem = (
       const isMoving = Math.abs(Velocity.x[eid] + Velocity.y[eid]) > 0;
       const angle = Rotation.angle[eid];
 
+      let nextAnimation = sprite.anims.currentAnim?.key;
       if (angle < 45) {
-        sprite.play(isMoving ? "move-up" : "idle-up");
+        nextAnimation = isMoving ? "move-up" : "idle-up";
       } else if (angle < 135) {
-        sprite.play(isMoving ? "move-right" : "idle-right");
+        nextAnimation = isMoving ? "move-right" : "idle-right";
       } else if (angle < 225) {
-        sprite.play(isMoving ? "move-down" : "idle-down");
+        nextAnimation = isMoving ? "move-down" : "idle-down";
       } else {
-        sprite.play(isMoving ? "move-left" : "idle-left");
+        nextAnimation = isMoving ? "move-left" : "idle-left";
+      }
+
+      if (nextAnimation !== sprite.anims.currentAnim?.key) {
+        sprite.play(nextAnimation);
       }
     }
 
