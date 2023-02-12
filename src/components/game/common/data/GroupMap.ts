@@ -1,4 +1,4 @@
-import { tuple } from "utils/Collection";
+import { tuple } from "utils/Types";
 
 /**
  * TOOD: Interesting thought, but doesn't seem to provide enough value to justify its complexity.

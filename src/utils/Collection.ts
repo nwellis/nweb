@@ -1,2 +1,9 @@
-type Lit = string | number | boolean | undefined | null | void | {};
-export const tuple = <T extends Lit[]>(...args: T) => args;
+export function mapValues<T extends object, TResult>(
+  obj: T,
+  callback: (t: T[keyof T], key: keyof T) => TResult
+) {
+  return Object.keys(obj).reduce((mapped, key) => {
+    mapped[key] = callback(obj[key], key as keyof T);
+    return mapped;
+  }, {} as { [P in keyof T]: TResult });
+}
