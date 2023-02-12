@@ -7,8 +7,8 @@ const mk = <T extends string>(
   key: T,
   obj: Omit<Phaser.Types.Loader.FileTypes.SpriteSheetFileConfig, "key">
 ) => ({
-  textureId: ++cursor,
   key,
+  textureId: ++cursor,
   ...obj,
 });
 

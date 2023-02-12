@@ -8,6 +8,7 @@ import {
 } from "bitecs";
 import { Sprite } from "components/game/common/components/Sprite";
 import { Position } from "../components/Physics";
+import { CharacterAnimationConfig } from "../config/animation/CharacterAnimations";
 
 export const mkSpriteSystem = (
   scene: Phaser.Scene,
@@ -31,19 +32,8 @@ export const mkSpriteSystem = (
       console.log(`${textureId} => ${texture}`);
 
       // console.log(`ADDING SPRITE ${id}:${texture}`);
-      spritesById.set(id, scene.add.sprite(0, 0, texture));
-
-      // https://phaser.io/examples/v3/view/animation/create-animation-from-sprite-sheet
-      // const sprite = spritesById.get(id);
-      // sprite.anims.create({
-      //   key: "move-down",
-      //   frameRate: 4,
-      //   repeat: -1,
-      //   frames: sprite.anims.generateFrameNumbers(texture, {
-      //     frames: [3, 5],
-      //   }),
-      // });
-      // sprite.play("move-down");
+      const sprite = scene.add.sprite(0, 0, texture);
+      spritesById.set(id, sprite);
     }
 
     const entities = SpriteQuery(world);
