@@ -14,7 +14,7 @@ const mk = <T extends string>(
   key,
   texture,
   characterId: ++cursor,
-  for: mkAnimationFramesFor(section),
+  entries: mkAnimationFramesFor(section),
 });
 
 export const CharacterAnimationConfig = mkConfig(

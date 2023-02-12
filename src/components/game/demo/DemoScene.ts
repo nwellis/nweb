@@ -86,7 +86,7 @@ export default class DemoScene extends BaseScene {
     Position.y[player] = this.scale.height / 2;
 
     addComponent(this.world, Rotation, player);
-    Rotation.angle[player] = 0;
+    Rotation.angle[player] = 180; // look down
 
     addComponent(this.world, Velocity, player);
     Velocity.x[player] = 0;

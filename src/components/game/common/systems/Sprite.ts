@@ -85,7 +85,7 @@ export const mkSpriteCharacterSystem = (
       const animation = animations[SpriteCharacter.characterId[eid]];
       if (animation) {
         const config = CharacterAnimationConfig[animation];
-        Object.values(config.for).forEach(({ frames, ...animation }) => {
+        Object.values(config.entries).forEach(({ frames, ...animation }) => {
           sprite.anims.create({
             ...animation,
             frames: sprite.anims.generateFrameNumbers(config.texture, {
@@ -106,11 +106,17 @@ export const mkSpriteCharacterSystem = (
         continue;
       }
 
-      const velocity = Math.abs(Velocity.x[eid] + Velocity.y[eid]);
-      if (velocity > 0) {
-        sprite.play("move-down");
+      const isMoving = Math.abs(Velocity.x[eid] + Velocity.y[eid]) > 0;
+      const angle = Rotation.angle[eid];
+
+      if (angle < 45) {
+        sprite.play(isMoving ? "move-up" : "idle-up");
+      } else if (angle < 135) {
+        sprite.play(isMoving ? "move-right" : "idle-right");
+      } else if (angle < 225) {
+        sprite.play(isMoving ? "move-down" : "idle-down");
       } else {
-        sprite.play("idle-down");
+        sprite.play(isMoving ? "move-left" : "idle-left");
       }
     }
 
