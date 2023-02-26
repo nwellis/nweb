@@ -12,13 +12,16 @@ const mk = <T extends string>(
   ...obj,
 });
 
-export const SpriteSheetConfig = mkConfig(
-  "key",
-  mk("characters", {
+export const SpriteSheetConfig = {
+  characters: mk("characters", {
     url: "game/characters.png",
     frameConfig: { frameWidth: 16, frameHeight: 16 },
-  })
-);
+  }),
+  tiles: mk("tiles", {
+    url: "game/basictile.png",
+    frameConfig: { frameWidth: 16, frameHeight: 16 },
+  }),
+};
 
 // https://github.com/NateTheGreatt/bitECS/blob/84d5905c39e396fdeb597030d0a1d5a5ce5d5292/docs/FAQ.md
 export const SpriteSheetTextures = Object.values(SpriteSheetConfig).reduce(
