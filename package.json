@@ -6,6 +6,7 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
+    "lint": "eslint \"src/**/*.{ts,tsx,astro}\"",
     "preview": "astro preview",
     "astro": "astro",
     "gen": "plop"
@@ -15,10 +16,19 @@
     "@astrojs/react": "^2.0.1",
     "@astrojs/tailwind": "^3.0.0",
     "@types/three": "^0.146.0",
+    "@typescript-eslint/eslint-plugin": "^5.56.0",
+    "@typescript-eslint/parser": "^5.56.0",
     "astro": "^2.0.2",
     "autoprefixer": "^10.4.8",
+    "eslint": "^8.36.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-astro": "^0.26.1",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.32.2",
     "plop": "^3.1.1",
-    "postcss": "^8.4.16"
+    "postcss": "^8.4.16",
+    "prettier": "2.8.7"
   },
   "dependencies": {
     "@fontsource/jetbrains-mono": "^4.5.10",

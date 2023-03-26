@@ -1,17 +1,14 @@
 ---
-export interface Props {}
+import type { HTMLAttributes } from "astro/types";
+export interface Props extends HTMLAttributes<"div"> {}
 
-const {
-  class: classItem = "",
-  "class:list": classList = [],
-  ...rest
-} = Astro.props;
+const { class: classItem = "", "class:list": classList, ...rest } = Astro.props;
 ---
 
 <div
   class:list={[
     classItem,
-    ...classList,
+    classList,
     "relative bg-gray-darker shadow-black shadow-lg rounded-xl",
   ]}
   {...rest}

@@ -8,7 +8,7 @@ export type ToolsTabKey = keyof typeof ToolsMetadata;
 const Tools = Object.keys(ToolsMetadata) as ToolsTabKey[];
 type AstroIconSlots = Record<`icon${ToolsTabKey}`, React.ReactSVGElement>;
 
-export type ToolsTabListProps = {} & Partial<AstroIconSlots> &
+export type ToolsTabListProps = Partial<AstroIconSlots> &
   React.HTMLAttributes<HTMLDivElement>;
 
 function ToolsTabList({ className, ...rest }: ToolsTabListProps) {

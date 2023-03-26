@@ -1,6 +1,7 @@
+import React from "react";
 import { Canvas } from "@react-three/fiber";
 import clsx from "clsx";
-import WaveParticles from "../common/WaveParticles";
+import WaveParticles from "./common/WaveParticles";
 
 export type WavesProps = {
   colorHex?: number;

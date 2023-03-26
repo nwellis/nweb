@@ -1,9 +1,9 @@
 import React from "react";
 import clsx from "clsx";
-import { BaseCanvasProps } from "./canvas/BaseCanvas";
+import { BaseCanvasProps } from "./BaseCanvas";
 
 const Canvas = {
-  Demo: React.lazy(() => import("components/game/canvas/DemoCanvas")),
+  Demo: React.lazy(() => import("components/__legacy/canvas/DemoCanvas")),
 };
 export type LazyLoadCanvasKey = keyof typeof Canvas;
 

@@ -1,0 +1,17 @@
+---
+import type { HTMLAttributes } from "astro/types";
+// import type { Types } from "phaser";
+
+export interface Props extends HTMLAttributes<"div"> {}
+
+const { ...rest } = Astro.props;
+---
+
+<!-- https://docs.astro.build/en/guides/client-side-scripts/#pass-frontmatter-variables-to-scripts -->
+<phaser-game {...rest}></phaser-game>
+
+<script>
+  import { PhaserGameElement } from "./PhaserGame.element";
+
+  window.customElements.define(PhaserGameElement.HTML_TAG, PhaserGameElement);
+</script>

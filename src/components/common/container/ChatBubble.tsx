@@ -1,7 +1,7 @@
 import * as React from "react";
 import clsx from "clsx";
 
-export type ChatBubbleProps = {} & React.HTMLAttributes<HTMLDivElement>;
+export type ChatBubbleProps = React.HTMLAttributes<HTMLDivElement>;
 
 function ChatBubble({ children, className, ...rest }: ChatBubbleProps) {
   return (

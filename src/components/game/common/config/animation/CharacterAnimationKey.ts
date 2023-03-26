@@ -12,9 +12,9 @@ export const CharacterAnimationKeys = [
 export type CharacterAnimationKey = (typeof CharacterAnimationKeys)[number];
 
 export function isCharacterAnimationKey(
-  key: any
+  key: string
 ): key is CharacterAnimationKey {
-  return CharacterAnimationKeys.includes(key);
+  return CharacterAnimationKeys.includes(key as CharacterAnimationKey);
 }
 
 export const AnimationsPerRow = Array.of<CharacterAnimationKey[]>(

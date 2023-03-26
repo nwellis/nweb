@@ -1,3 +1,4 @@
+import React from "react";
 import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
 import { BufferGeometry, Material, Points } from "three";
@@ -13,7 +14,7 @@ const SEPARATION = 128,
 
 const { positions, scales } = generateWavePoints();
 
-function WaveParticles({ color = 0xfcfcfc }) {
+function WaveParticles({ color = 0xfcfcfc }: { color: number }) {
   const particles = useRef<Points<BufferGeometry, Material | Material[]>>();
   const moveCount = useRef(0);
   const shader = WavesShaderMaterial(color);
