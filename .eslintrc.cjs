@@ -6,6 +6,7 @@ module.exports = {
     "plopfile.cjs",
     "postcss.config.js",
     "dist/**/*",
+    "integrations/**/*",
   ],
   rules: {
     "prettier/prettier": [

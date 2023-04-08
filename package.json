@@ -7,13 +7,13 @@
     "start": "astro dev",
     "build": "astro build",
     "lint": "eslint \"src/**/*.{ts,tsx,astro}\"",
+    "prepreview": "npm run build",
     "preview": "astro preview",
     "astro": "astro",
     "gen": "plop"
   },
   "devDependencies": {
     "@astrojs/image": "^0.3.6",
-    "@astrojs/react": "^2.0.1",
     "@astrojs/tailwind": "^3.0.0",
     "@types/three": "^0.146.0",
     "@typescript-eslint/eslint-plugin": "^5.56.0",
@@ -28,7 +28,8 @@
     "eslint-plugin-react": "^7.32.2",
     "plop": "^3.1.1",
     "postcss": "^8.4.16",
-    "prettier": "2.8.7"
+    "prettier": "2.8.7",
+    "replace-in-file": "^6.3.5"
   },
   "dependencies": {
     "@fontsource/jetbrains-mono": "^4.5.10",
