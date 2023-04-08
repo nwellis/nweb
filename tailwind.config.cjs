@@ -33,7 +33,8 @@ module.exports = {
 			primary: {
 				dark: '#31445E',
 				DEFAULT: '#4C6A94',
-				light: '#7892BA'
+				light: '#7892BA',
+				lighter: "#93A8C8",
 			},
 			accent: {
 				dark: '#4c1d95',

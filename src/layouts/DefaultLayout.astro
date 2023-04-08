@@ -49,16 +49,9 @@ const { tab = "Home", noNav = false } = Astro.props;
                       NE
                     </h1>
                   */}
-                    <h1
-                      class:list={[
-                        "text-3xl font-extrabold",
-                        // "text-3xl font-extrabold hidden md:block",
-                        "bg-clip-text text-transparent bg-gradient-to-r",
-                        "from-brand-phaserLight via-brand-react to-accent-light",
-                        // "from-brand-pwa to-brand-react",
-                      ]}
-                    >
-                      Nick Ellis
+                    <h1 class="text-3xl font-semibold lowercase tracking-wider">
+                      nickellis{/** TODO: This adds a newline :/ */}
+                      <span class="text-primary-light text-2xl">.dev</span>
                     </h1>
                   </Tab>
                   {/** 

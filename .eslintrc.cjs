@@ -1,6 +1,11 @@
-// Example https://github.com/ixartz/Astro-boilerplate/blob/main/.eslintrc
 module.exports = {
   plugins: ["eslint-plugin-prettier"],
+  ignorePatterns: [
+    "tailwind.config.cjs",
+    "astro.config.mjs",
+    "plopfile.cjs",
+    "postcss.config.js",
+  ],
   rules: {
     "prettier/prettier": [
       "error",

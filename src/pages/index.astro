@@ -59,6 +59,35 @@ import DemoGame from "components/game/demo/DemoGame.astro";
       <DemoGame />
     </div>
 
+    <!-- Experience -->
+    <div
+      data-animate-in
+      class:list={[
+        "animate-in-start duration-700 transition-all",
+        "w-full flex flex-col space-y-4 lg:flex-row lg:space-x-16 lg:space-y-0 justify-center items-center",
+      ]}
+    >
+      <p class="text-lg lg:flex-1 lg:text-3xl leading-loose text-end">
+        <span
+          class:list={[
+            "text-5xl lg:text-7xl font-bold",
+            "bg-clip-text text-transparent bg-gradient-to-r",
+            "from-brand-phaserLight via-brand-react to-accent-light",
+          ]}
+        >
+          10 years</span
+        ><br />in software including
+      </p>
+
+      <ul
+        class="flex flex-col items-center lg:flex-1 lg:items-start space-y-2 text-xl lg:text-3xl font-semibold"
+      >
+        <li>Practical Experience</li>
+        <li>Leadership, Mentoring</li>
+        <li>Problem Solving</li>
+      </ul>
+    </div>
+
     <!-- Frameworks -->
     <div data-animate-in class="animate-in-start duration-700 transition-all">
       <ToolsTabList client:load>
@@ -80,28 +109,6 @@ import DemoGame from "components/game/demo/DemoGame.astro";
           src="/images/phaser-logo.png"
         />
       </ToolsTabList>
-    </div>
-
-    <!-- Experience -->
-    <div
-      data-animate-in
-      class:list={[
-        "animate-in-start duration-700 transition-all",
-        "flex flex-col space-y-4 lg:flex-row lg:space-x-16 lg:space-y-0 justify-center items-center",
-      ]}
-    >
-      <p class="text-lg lg:text-3xl leading-loose text-end">
-        <span class="text-5xl lg:text-7xl font-bold">10 years</span><br />in
-        software including
-      </p>
-
-      <ul
-        class="flex flex-col items-center lg:items-start space-y-2 text-xl lg:text-3xl font-semibold"
-      >
-        <li>Practical Experience</li>
-        <li>Leadership and Mentoring</li>
-        <li>Problem Solving</li>
-      </ul>
     </div>
 
     <!-- <ChatBubble
