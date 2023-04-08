@@ -32,15 +32,19 @@
     "replace-in-file": "^6.3.5"
   },
   "dependencies": {
+    "@astrojs/react": "^2.1.1",
     "@fontsource/jetbrains-mono": "^4.5.10",
     "@fontsource/raleway": "^4.5.12",
     "@headlessui/react": "^1.7.8",
     "@react-three/fiber": "^8.9.1",
+    "@types/react": "^18.0.33",
+    "@types/react-dom": "^18.0.11",
     "astro-icon": "^0.8.0",
     "bitecs": "^0.3.38",
     "clsx": "^1.2.1",
     "phaser": "^3.60.0-beta.18",
     "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "three": "^0.147.0"
   }
 }
