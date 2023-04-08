@@ -1,0 +1,34 @@
+---
+import PhaserGame from "components/game/PhaserGame.astro";
+
+export type Props = Record<string, never>;
+
+const {} = Astro.props;
+---
+
+<PhaserGame
+  id="demo-game"
+  style={{
+    height: "100%",
+    width: "100%",
+    overflow: "hidden",
+
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  }}
+/>
+
+<script>
+  import { PhaserGameElement } from "../PhaserGame.element";
+  import DemoScene from "./DemoScene";
+
+  window.customElements.whenDefined(PhaserGameElement.HTML_TAG).then(() => {
+    const element = document.getElementById("demo-game") as PhaserGameElement;
+    element
+      .startGame({
+        scale: DemoScene.Scaling,
+      })
+      .addScene(element.id, new DemoScene(), true);
+  });
+</script>

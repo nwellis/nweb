@@ -3,7 +3,7 @@ import Waves from "../components/3D/Waves";
 import ToolsTabList from "../components/tools/ToolsTabList";
 import DefaultLayout from "layouts/DefaultLayout.astro";
 import { Icon } from "astro-icon";
-import LazyLoadCanvas from "components/game/LazyLoadCanvas";
+import DemoGame from "components/game/demo/DemoGame.astro";
 ---
 
 <script>
@@ -56,7 +56,7 @@ import LazyLoadCanvas from "components/game/LazyLoadCanvas";
         "flex flex-col items-center justify-center",
       ]}
     >
-      <LazyLoadCanvas client:only="react" canvas="Demo" />
+      <DemoGame />
     </div>
 
     <!-- Frameworks -->
