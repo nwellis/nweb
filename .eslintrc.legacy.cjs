@@ -1,6 +1,7 @@
 // Example https://github.com/ixartz/Astro-boilerplate/blob/main/.eslintrc
 module.exports = {
-  plugins: ["eslint-plugin-prettier"],
+  // Configuration for JavaScript files
+  plugins: ["astro", "eslint-plugin-prettier"],
   rules: {
     "prettier/prettier": [
       "error",
@@ -10,32 +11,10 @@ module.exports = {
       },
     ],
   },
-  extends: ["plugin:prettier/recommended"],
+  extends: ["plugin:astro/recommended"],
+  // ...
   overrides: [
     {
-      // ASTRO CONFIG
-      files: ["*.astro"],
-      parser: "astro-eslint-parser",
-      // Parse the script in `.astro` as TypeScript by adding the following configuration.
-      // It's the setting you need when using TypeScript.
-      parserOptions: {
-        parser: "@typescript-eslint/parser",
-        extraFileExtensions: [".astro"],
-      },
-      rules: {
-        "prettier/prettier": [
-          "error",
-          {
-            doubleQuote: true,
-            endOfLine: "auto",
-          },
-        ],
-        "@typescript-eslint/no-empty-interface": "off",
-        "no-empty-pattern": "off",
-      },
-    },
-    {
-      // TS/REACT CONFIG
       files: ["*.ts", "*.tsx"],
       plugins: ["@typescript-eslint", "react", "jsx-a11y"],
       extends: [
@@ -72,6 +51,32 @@ module.exports = {
             ignore: ["className", "children"],
           },
         ],
+      },
+    },
+    {
+      files: ["**/*.astro"],
+      plugins: ["@typescript-eslint", "jsx-a11y"],
+      parser: "astro-eslint-parser",
+      extends: [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:jsx-a11y/recommended",
+      ],
+      parserOptions: {
+        parser: "@typescript-eslint/parser",
+        sourceType: "module",
+        extraFileExtensions: [".astro"],
+      },
+      rules: {
+        "prettier/prettier": [
+          "error",
+          {
+            doubleQuote: true,
+            endOfLine: "auto",
+          },
+        ],
+        "@typescript-eslint/no-empty-interface": "off",
+        "no-empty-pattern": "off",
       },
     },
   ],
