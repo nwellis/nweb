@@ -21,14 +21,14 @@ const {} = Astro.props;
 
 <script>
   import { PhaserGameElement } from "../PhaserGame.element";
-  import DemoScene from "./DemoScene";
 
-  window.customElements.whenDefined(PhaserGameElement.HTML_TAG).then(() => {
+  async function bootGame() {
+    await window.customElements.whenDefined(PhaserGameElement.HTML_TAG);
     const element = document.getElementById("demo-game") as PhaserGameElement;
-    element
-      .startGame({
-        scale: DemoScene.Scaling,
-      })
-      .addScene(element.id, new DemoScene(), true);
-  });
+    const DemoScene = (await import("./DemoScene")).default;
+    const game = await element.startGame({ scale: DemoScene.Scaling });
+    game.addScene(element.id, new DemoScene(), true);
+  }
+
+  // bootGame();
 </script>

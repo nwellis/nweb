@@ -5,6 +5,7 @@ module.exports = {
     "astro.config.mjs",
     "plopfile.cjs",
     "postcss.config.js",
+    "dist/**/*",
   ],
   rules: {
     "prettier/prettier": [

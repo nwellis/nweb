@@ -1,4 +1,4 @@
-import Phaser from "phaser";
+import type Phaser from "phaser";
 
 export class PhaserGameElement extends HTMLElement {
   static readonly HTML_TAG = "phaser-game";
@@ -13,8 +13,10 @@ export class PhaserGameElement extends HTMLElement {
     super();
   }
 
-  startGame(partialConfig: Partial<Phaser.Types.Core.GameConfig> = {}) {
+  async startGame(partialConfig: Partial<Phaser.Types.Core.GameConfig> = {}) {
     this.stopGame();
+
+    const Phaser = await import("phaser");
 
     this.config = {
       type: Phaser.AUTO,
