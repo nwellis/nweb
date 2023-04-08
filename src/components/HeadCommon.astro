@@ -20,7 +20,8 @@ import "@fontsource/raleway/700.css";
     if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
       return "dark";
     }
-    return "light";
+    // return "light"; TODO: light dark toggle?
+    return "dark";
   })();
 
   if (theme === "light") {
