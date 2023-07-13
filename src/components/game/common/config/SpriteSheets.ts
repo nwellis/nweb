@@ -18,7 +18,7 @@ export const SpriteSheetConfig = {
     frameConfig: { frameWidth: 16, frameHeight: 16 },
   }),
   tiles: mk("tiles", {
-    url: "game/basictile.png",
+    url: "game/basictiles.png",
     frameConfig: { frameWidth: 16, frameHeight: 16 },
   }),
 };
