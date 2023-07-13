@@ -1,0 +1,32 @@
+---
+import DefaultLayout from "layouts/DefaultLayout.astro";
+import DemoGame from "components/game/demo/DemoGame.astro";
+---
+
+<title slot="head">Phaser Demo</title>
+
+<DefaultLayout>
+  <!-- <div class="h-screen" slot="hero"/> -->
+
+  <div class="flex flex-col py-16 space-y-20 items-center">
+    <div
+      data-animate-in
+      class:list={[
+        "w-72 h-[11.25rem] lg:w-[32rem] lg:h-80 xl:w-[48rem] xl:h-[30rem] rounded-2xl bg-black overflow-clip",
+        "flex flex-col items-center justify-center",
+      ]}
+    >
+      <DemoGame />
+    </div>
+
+    <div class="flex flex-col justify-center items-center">
+      <h2
+        data-animate-in
+        class="text-2xl sm:text-3xl px-4 md:px-24 max-w-6xl text-center"
+      >
+        <span class="text-brand-phaser font-bold brightness-125">Phaser</span>
+        game with ECS framework and physics engine.
+      </h2>
+    </div>
+  </div>
+</DefaultLayout>
